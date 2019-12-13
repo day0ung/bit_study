@@ -1,0 +1,76 @@
+package work2;
+
+import java.util.Scanner;
+
+public class mainClass {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// [회원수][정보]
+		String datas[][] = new String[10][4];
+
+		/*
+		 * [0] : 번호 [1] : 이름 [2] : 나이 [3] : 주소
+		 */
+
+		int choice;
+		int memberNumber = 0;
+
+		while (true) {
+			// DAO Data Access Object
+			// >> insert delete select update 이것을 다루는 클래스
+			System.out.println("1.데이터의 추가(insert) ");
+			System.out.println("2.데이터의 삭제 (delete)");
+			System.out.println("3.데이터의 검색 (select)");
+			System.out.println("4.데이터의 수정 (update)");
+			System.out.println("5.데이터의 모두출력 ");
+
+			System.out.print("메뉴번호를 입력해주십시오>>");
+			choice = sc.nextInt();
+			if (choice == 1) { // 데이터추가
+				// 입력받는 부분
+
+				System.out.println("====데이터추가====");
+				System.out.print("번호: ");
+				String number = sc.next();
+				System.out.print("이름: ");
+				String name = sc.next();
+				System.out.print("나이: ");
+				String age = sc.next();
+				System.out.print("주소: ");
+				String address = sc.next();
+
+				datas[memberNumber][0] = number;
+				datas[memberNumber][1] = name;
+				datas[memberNumber][2] = age;
+				datas[memberNumber][3] = address;
+
+				memberNumber++;
+
+			}
+
+			else if (choice == 2) { // 데이터 삭제, " " 배열은 삭제안되니까 빈칸
+				// 입력받는 부분 
+				//데이터삭제 검색, 수정은 검색을 동반해야함. 찾아야 삭제,수정함
+				
+
+			} else if (choice == 3) { // 데이터 검색 ,
+
+		
+				
+			} else if (choice == 4) { // 데이터 수정,
+
+			} else if (choice == 5) { // 데이터출력
+
+				for (int i = 0; i < datas.length; i++) {
+					for (int j = 0; j < datas[0].length; j++) {
+						if( datas[i][j] != null && !datas[i][0].equals(""));
+						System.out.println("datas["+i+"]["+j+"] = "+datas[i][j]);
+					
+					}
+				}
+			}
+
+		}
+	}
+
+}

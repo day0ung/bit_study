@@ -1,0 +1,40 @@
+package panel;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class PitcherPanel extends JPanel {
+	//액션리스너만 필요함
+	JLabel label[] = new JLabel[6]; 
+	
+	//입력을받아야할 부분
+	JTextField textField[] = new JTextField[6];
+	
+	JButton menuBtn, insertBtn;
+	
+	public PitcherPanel() {
+		setLayout(null);
+		
+		String title[] = {"이름:" , "나이:", "신장: ", "승:", "패:", "방어율"};
+		
+		for (int i = 0; i < title.length; i++) {
+			label[i] = new JLabel();
+			label[i].setText(title[i]);
+			label[i].setBounds(30, 50 +40*i, 100, 30);
+			
+			textField[i] = new JTextField();
+			textField[i].setBounds(180, 50+ 40*i, 200, 30);
+			
+			add(label[i]);
+			add(textField[i]);
+		}
+		
+		setBounds(0, 0, 640, 450);
+		setBackground(Color.green);
+	}
+	
+ }

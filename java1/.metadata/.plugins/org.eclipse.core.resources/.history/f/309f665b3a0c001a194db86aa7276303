@@ -1,0 +1,27 @@
+package baseball;
+
+import java.util.Scanner;
+
+public class mainClass {
+	public static void main(String[] args) {
+		/*
+		 * baseball random 1~10 사이의숫자중 3개 뽑음 -> 7 3 5
+		 * 
+		 * user input - 3개입력받음 1 2 3 (자리는안맞았는데 숫자는맞았다. 1ball) 7 8 9 (1 strike) 7 5 3
+		 * (1strike 2ball)
+		 * 
+		 * #주의사항(증복제거) rnum != rnum2 != rnum3 2 4 4 2 4 1 -> 2strike 1ball
+		 * 
+		 * user input -> 같은 수가 입력이 되면 다시입력!
+		 * 
+		 * 10번의 기회
+		 * 
+		 * replay
+		 */
+		
+
+		
+
+	}
+
+}

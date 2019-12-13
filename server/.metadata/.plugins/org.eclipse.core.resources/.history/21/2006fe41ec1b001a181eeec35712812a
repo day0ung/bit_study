@@ -1,0 +1,11 @@
+package main;
+
+import java.net.Socket;
+import java.util.List;
+
+public class SerberThread {
+	Socket socket;
+	List<Socket> list;
+	
+	S
+}

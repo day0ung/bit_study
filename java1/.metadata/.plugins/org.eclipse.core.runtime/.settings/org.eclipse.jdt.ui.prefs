@@ -1,0 +1,18 @@
+content_assist_disabled_computers=org.eclipse.jdt.ui.textProposalCategory\u0000org.eclipse.jdt.ui.javaAllProposalCategory\u0000org.eclipse.jdt.ui.javaTypeProposalCategory\u0000org.eclipse.jdt.ui.javaNoTypeProposalCategory\u0000org.eclipse.jdt.ui.javaChainProposalCategory\u0000
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="java.lang.CharSequence"><rhs name\="java.lang.String"/></lhs><lhs name\="java.io.IOException"><rhs name\="java.io.FileNotFoundException"/></lhs><lhs name\="java.lang.Exception"><rhs name\="java.io.FileNotFoundException"/><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.Throwable"><rhs name\="java.io.FileNotFoundException"/><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.io.FileNotFoundException"><rhs name\="java.io.FileNotFoundException"/></lhs><lhs name\="java.lang.IllegalArgumentException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.RuntimeException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.lang.NumberFormatException"><rhs name\="java.lang.NumberFormatException"/></lhs><lhs name\="java.io.File"><rhs name\="java.io.File"/></lhs><lhs name\="java.io.OutputStreamWriter"><rhs name\="java.io.FileWriter"/></lhs><lhs name\="java.io.Writer"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="java.lang.Appendable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="java.io.Closeable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="java.lang.AutoCloseable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="java.io.Flushable"><rhs name\="java.io.FileWriter"/><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="java.io.FileWriter"><rhs name\="java.io.FileWriter"/></lhs><lhs name\="java.io.BufferedWriter"><rhs name\="java.io.BufferedWriter"/></lhs><lhs name\="constructor.MyClass"><rhs name\="constructor.MyClass"/></lhs><lhs name\="staticClass.MyClass"><rhs name\="staticClass.MyClass"/></lhs><lhs name\="staticClass.StaticClass"><rhs name\="staticClass.StaticClass"/></lhs><lhs name\="staticClass.StaticClass1"><rhs name\="staticClass.StaticClass1"/></lhs><lhs name\="child.ChildClass"><rhs name\="child.ChildClass"/></lhs><lhs name\="parents.ParentsClass"><rhs name\="child.ChildClass"/></lhs><lhs name\="parent.ParentClass"><rhs name\="parent.ParentClass"/><rhs name\="child.TomClass"/><rhs name\="child.JaneClass"/></lhs><lhs name\="child.TomClass"><rhs name\="child.TomClass"/></lhs><lhs name\="child.JaneClass"><rhs name\="child.JaneClass"/></lhs><lhs name\="MemberDTO"><rhs name\="MemberDTO"/></lhs></history>
+content_assist_number_of_computers=22
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=17
+spelling_ignore_ampersand_in_properties=true
+spelling_ignore_digits=true
+spelling_ignore_java_strings=true
+spelling_ignore_mixed=true
+spelling_ignore_non_letters=true
+spelling_ignore_sentence=true
+spelling_ignore_single_letters=true
+spelling_ignore_upper=true
+spelling_ignore_urls=true
+spelling_locale_initialized=true
+spelling_user_dictionary_encoding=UTF-8
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,23 @@
+
+public class mainClass {
+	public static void main(String[] args) {
+		
+	}
+}
+
+class MyClass{
+	private int number; //member 변수
+	public static int stNumber; //static 변수
+	
+	public void method() {
+		int num = 0; //local변수(메소드안에서만돈다)
+		num++;
+		this.number++;
+		MyClass.stNumber++;
+		
+		System.out.println("num = " +num); //계속 1만나옴, 
+		System.out.println("number =" +number);
+		System.out.println("stNumber = " + stNumber);
+		
+	}
+}

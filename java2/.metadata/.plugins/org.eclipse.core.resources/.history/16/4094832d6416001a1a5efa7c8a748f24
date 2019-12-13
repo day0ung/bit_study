@@ -1,0 +1,77 @@
+package dao;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+import dto.Batter;
+import dto.Human;
+import dto.Pitcher;
+import singleton.Singleton;
+
+public class Insert {
+	Scanner scan = new Scanner(System.in);
+
+	private int memberNum;	
+	
+	public Insert() {
+		memberNum = 1000;		
+	}
+	
+	public void input() {
+		Human human = null;
+		System.out.println("===>>선수등록<<===");
+		System.out.println("투수(1)/ 타자(2) ");
+		System.out.print("번호입력>>> ");
+		int choice = scan.nextInt();
+		
+		System.out.print("이름: ");
+		String name = scan.next();
+		
+		System.out.print("나이: ");
+		int age = scan.nextInt();
+		
+		System.out.print("신장: ");
+		double height = scan.nextDouble();
+		
+		System.out.print("생일: ");
+		String birth = scan.next();
+		
+		if(choice == 1) {
+			System.out.print("승: ");
+			int win = scan.nextInt();
+			System.out.print("패: ");
+			int lose = scan.nextInt();
+			System.out.print("방어율: ");
+			double defense = scan.nextDouble();
+			human = new Pitcher(memberNum, name, age, height, birth, win, lose, defense);
+		}
+		else {
+			System.out.print("타수: ");
+			int bat = scan.nextInt();
+			System.out.print("안타: ");
+			int hit = scan.nextInt();
+			System.out.print("타율: ");
+			double batAvg = scan.nextDouble();
+			human = new Batter(memberNum+1000, name, age, height,birth, bat, hit, batAvg);
+		}
+		Singleton sin = Singleton.getInstance();
+		sin.map.put(human.getName() , human);
+		
+		memberNum++;
+	}
+	public void allPrint() {
+		Singleton sin = Singleton.getInstance();
+	//	sin.map.get(key)
+		
+		java.util.Iterator<String> it = sin.map.keySet().iterator();
+		
+		while(it.hasNext()) {
+			String key = it.next();
+			Human dto = sin.map.get(key);
+			System.out.println(key);
+			System.out.println(dto);
+		}
+	}
+}

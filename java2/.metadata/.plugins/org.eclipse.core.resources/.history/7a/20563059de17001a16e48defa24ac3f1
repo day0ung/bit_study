@@ -1,0 +1,85 @@
+package awtSample01;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+
+public class WindowTest extends JFrame implements WindowListener {
+	
+	JTable table;
+	JScrollPane scrPane;
+	
+	String  columnNames[] = {
+			"상품번호"
+			+ "상품명"
+			+ "상품가격"
+			+ "상품회사"
+	};
+	
+	Object rowDatas[][] = {//데이터를 삽입하는 배열
+			{1001, "맛동산", 1000, "오리온"},
+			{1002, "초코파이", 1200, "해태"},
+			{1003, "감자깡", 1500, "롯데"},
+	}; 
+	
+	public WindowTest() {
+	
+		table = new JTable(rowDatas, columnNames);
+		scrPane = new JScrollPane(table); //스크롤에 집어넣을때 테이블을 넣어야함
+		add(scrPane); //레이아웃안잡으면 꽉찬화면으로나옴
+		
+		
+		setSize(800,600);
+		setLocation(100, 0);
+		setVisible(true);
+		
+		addWindowListener(this);
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		
+		System.exit(0);
+
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

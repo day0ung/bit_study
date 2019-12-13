@@ -1,0 +1,11 @@
+package staticClass;
+
+public class mainClass {
+	public static void main(String[] args) {
+		
+		MyClass cls = new MyClass(); //클래스사용하려면 동적할당
+		//cls = instance
+		
+		cls = new MyClass(12);
+	}
+}

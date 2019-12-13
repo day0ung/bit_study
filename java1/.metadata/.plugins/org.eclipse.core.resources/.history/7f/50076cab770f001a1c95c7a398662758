@@ -1,0 +1,152 @@
+import java.util.Scanner;
+
+public class mainClass1 {
+
+	public static void main(String[] args) {
+		/*
+		 * sorting
+		 * 
+		 * 선언부
+		 * 
+		 * 입력부 몇개를 정렬하시겠습니까? 동적할당(갯수에맞춰서) 숫자를 갯수에 맞게 입력받는다 올림(1)/내림(2)
+		 * 
+		 * 정렬
+		 * 
+		 * 결과출력
+		 */
+		//함수를 정할때 input이 무엇일지, output이 무엇일지 잘생각해야함.
+		//sorting할 numbers[], 
+		//1.입력(함수)
+		int numbers[];
+		int input[] = new int[0];
+		numbers = userInput(input);
+		//2.정렬처리
+		numbers = sorting(input);
+		
+		//   swap
+		//3.결과처리
+		result(input);
+		
+		/*
+		Scanner scan = new Scanner(System.in);
+		int temp; // swap
+		int arrNum[] =null; // 정렬
+		int count =0; // 몇개를 정렬할지?
+		//선언부
+
+
+		System.out.println("몇개를 정렬하시겠습니까?");
+		count = scan.nextInt();
+
+		arrNum = new int[count]; // 갯수에 맞춰서 정렬
+		System.out.println("정렬할 갯수: " + count);
+
+		// 정렬할 숫자들 입력(동적할당)
+		for (int i = 0; i < arrNum.length; i++) {
+			System.out.println((i + 1) + "번째 수=");
+			arrNum[i] = scan.nextInt();
+		}
+		*/
+		 /*
+		System.out.println("올림(1)/내림(2)");
+		int choice = scan.nextInt();
+		if (choice == 1) {
+			// 오름차순
+			for (int i = 0; i < arrNum.length - 1; i++) {
+				for (int j = i + 1; j < arrNum.length; j++) {
+					if (arrNum[i] > arrNum[j]) {
+
+						temp = arrNum[i];
+						arrNum[i] = arrNum[j];
+						arrNum[j] = temp;
+					}
+				}
+			}
+			for (int i = 0; i < arrNum.length; i++) {
+				System.out.print(arrNum[i] + " ");
+			}
+			System.out.println();
+		} else if (choice == 2) {
+			// 내림차순
+			for (int i = 0; i < arrNum.length - 1; i++) {
+				for (int j = i + 1; j < arrNum.length; j++) {
+					if (arrNum[i] < arrNum[j]) {
+
+						temp = arrNum[i];
+						arrNum[i] = arrNum[j];
+						arrNum[j] = temp;
+					}
+				}
+			}
+			for (int i = 0; i < arrNum.length; i++) {
+				System.out.print(arrNum[i] + " ");
+			}
+			System.out.println();
+		}
+		*/
+	}
+	static int[] userInput(int arr[]) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("몇개를 정렬하시겠습니까?");
+		int count = scan.nextInt();
+
+		arr = new int[count]; // 갯수에 맞춰서 정렬
+		System.out.println("정렬할 갯수: " + count);
+
+		// 정렬할 숫자들 입력(동적할당)
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println((i + 1) + "번째 수=");
+			arr[i] = scan.nextInt();
+		}
+		return arr;
+		
+	}
+	static void swap(int num[], int i , int j) {
+		int temp = num[i];
+		num[i] = num[j];
+		num[j] = temp;
+	}
+	
+	static int [] sorting(int arr[]) {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("올림(1)/내림(2)");
+		int choice = scan.nextInt();
+		if (choice == 1) {
+			// 오름차순
+			for (int i = 0; i < arr.length - 1; i++) {
+				for (int j = i + 1; j < arr.length; j++) {
+					if (arr[i] > arr[j]) {
+						swap(arr, i, j);
+						
+					}
+				}
+			}
+			for (int i = 0; i < arr.length; i++) {
+				System.out.print(arr[i] + " ");
+			}
+			System.out.println();
+		} else if (choice == 2) {
+			// 내림차순
+			for (int i = 0; i < arr.length - 1; i++) {
+				for (int j = i + 1; j < arr.length; j++) {
+					if (arr[i] < arr[j]) {
+						swap(arr, i, j);
+
+						
+					}
+				}
+			}
+		}
+		return arr;
+	}
+	
+	static void result(int arr[]) {
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+	
+	
+
+}

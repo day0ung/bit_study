@@ -1,0 +1,7 @@
+package awt;
+
+import javax.swing.JFrame;
+
+public class Counter extends JFrame {
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;baseball클래스화.baseball&apos; to &apos;BaseballClass&apos;&#x0D;&#x0A;- Original project: &apos;baseball클래스화&apos;&#x0D;&#x0A;- Original element: &apos;baseball클래스화.baseball&apos;&#x0D;&#x0A;- Renamed element: &apos;baseball클래스화.BaseballClass&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;baseball&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;baseball클래스화{baseball.java[baseball" matchStrategy="1" name="BaseballClass" qualified="false" references="true" similarDeclarations="false" stamp="1574844594052" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,49 @@
+
+public class mainClass {
+	public static void main(String[] args) {
+		/*
+		 * Exception : 예외 != 에러
+		 * 			   개발자 용(유지보수), 어떤 예외가 발생했는지 보기위함
+		 * 
+		 * baseball -> 1 2 3 -> 'A' -> 65 
+		 * 숫자입력하라했는데 A를 입력함, ascii코드값으로 65임
+		 * 
+		 * -----exception이 발생하는상황들-------
+		 * number -> format	   1 2 3 -> 'A'
+		 * array -> index number [0번째 1번째]  int arr[] = new int [3] ->arr[3]error
+		 * class -> Scanner import안하면 못찾는다.
+		 * file  -> 경로로지정해준 경로에 파일이없을때
+		 * 
+		 * int number[] = new int[2];
+		 * 
+		 * try{
+		 * 	   number[2] = 'a'; //예외가 발생할 가능성이 있는 코드
+		 * 
+		 * }catch(예외 클래스1 e){
+		 * 		메시지(예외가 발생했다)
+		 * }catch(예외 클래스2 e){
+		 * 		메시지
+		 * }catch(예외 클래스3 e){
+		 * 		메시지
+		 * }finally{
+		 *    //무조건 실행
+		 *    //뒤처리
+		 *      파일 close
+		 *      DB 원상복구 -> rollback = undo
+		 * }
+		 */
+		int num[] = { 11, 22, 33};
+		System.out.println("프로그램시작");
+		
+		try {
+		for (int i = 0; i < 4; i++) {
+			System.out.println(num[i]);
+		}		
+		System.out.println("배열출력완료");
+		}catch (ArrayIndexOutOfBoundsException e){
+			System.out.println("배열범위 초과");
+		}
+		System.out.println("프로그램 끝");
+	}
+
+}

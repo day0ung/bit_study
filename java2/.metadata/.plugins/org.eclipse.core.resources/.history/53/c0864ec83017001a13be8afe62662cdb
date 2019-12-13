@@ -1,0 +1,38 @@
+package game;
+
+
+
+import java.awt.Color;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+
+import javax.swing.JFrame;
+
+public class GbbGame extends JFrame {
+	int win = 0;
+	int lose = 0;
+	int draw = 0;
+	public GbbGame() {
+		super("가위바위보 게임 과제");
+		
+		Label label = new Label("WIN "+win + "LOSE" + lose + "DRAW" + draw);
+		add(label);
+		
+		
+		
+		Panel player = new Panel();
+		player.setBackground(Color.BLUE);
+		player.setLayout(new GridLayout(1, 2));
+		add(player);
+		
+		
+		setSize(800, 600);
+		setLocation(100, 0);
+		setVisible(true);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+	
+}

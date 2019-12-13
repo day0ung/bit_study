@@ -1,0 +1,51 @@
+package work1;
+
+import java.util.Scanner;
+
+public class mainClass {
+	public static void main(String[] args) {
+		/*
+		 * 성적통계 프로그램
+		 * 
+		 * 몇명의 학생의 점수를 입력?
+		 * 
+		 * 2차원배열 String [학생명수][정해져있음 4] 1 { 홍길동, 90, 85, 100} //한명(colum)의대한 데이터가
+		 * 4개(변함이없음),
+		 * 
+		 * 
+		 * 이름, 국어, 영어, 수학, // 행
+		 * 
+		 * 각 학생의 총점 sum 전체 학생의 총점 allSum 총점의 1등 max 총점의 꼴지 min
+		 * 
+		 */
+
+		// 선언부(2차원배열, 몇명의학생을할건지, 정렬)
+		Scanner sc = new Scanner(System.in);
+		String str[][];
+		int count;
+		String name = null;
+		String kor =null;
+		String eng =null;
+		String math = null;
+		
+		str = new String[][] {
+			{ name, kor, eng, math}
+			};
+			
+			
+		System.out.print("몇명의 학생의 점수를 입력합니까? =");
+		count = sc.nextInt();
+		str = new String[count][4]; // 갯수는 count의 갯수
+		
+
+		// 정렬할 숫자들 입력(동적할당)
+		for (int i = 0; i < str.length; i++) {
+			System.out.println((i + 1) + "명=");
+			str[i][4] = sc.next();
+		}
+		
+		
+
+	}
+
+}

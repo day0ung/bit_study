@@ -1,0 +1,7 @@
+package sort;
+
+public class SortClass {
+	private int number[];
+	private boolean updown;
+	
+}

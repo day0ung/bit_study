@@ -1,0 +1,11 @@
+package oop3;
+//상속성
+public class mainClass {
+	public static void main(String[] args) {
+		//생성
+		ChildClass cc = new ChildClass();
+		
+		cc.Super_method(); //슈퍼클래승서 상속받았단이야기
+	}
+
+}

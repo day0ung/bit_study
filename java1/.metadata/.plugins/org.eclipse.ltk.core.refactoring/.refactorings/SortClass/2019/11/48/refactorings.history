@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;SortClass.java&apos; to &apos;SortClass/src/sort&apos;&#x0D;&#x0A;- Original project: &apos;SortClass&apos;&#x0D;&#x0A;- Destination element: &apos;SortClass/src/sort&apos;&#x0D;&#x0A;- Original element: &apos;SortClass.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;sort" element1="/src&lt;{SortClass.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1574919564524" units="1" version="1.0"/>
+</session>

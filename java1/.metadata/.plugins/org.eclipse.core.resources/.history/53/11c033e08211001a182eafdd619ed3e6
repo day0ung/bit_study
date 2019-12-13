@@ -1,0 +1,19 @@
+package child;
+
+import sup.SuperClass;
+
+//java 다중상속 불가
+public class ChildClass extends SuperClass { //상속하려면 extends쓰고 클래스명기입
+	public ChildClass() {
+		
+	}
+	
+	public void Child_func() { //메소드
+		System.out.println("ChildClass Child_func()");
+		
+	//	pri_name =""; //에러남, 완전한 부모클래스의것 자식도접근금지
+		pub_name ="";
+		pro_name ="";
+	}
+
+}

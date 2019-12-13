@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;성적통계프로그램arraylist과제.StudnetDAO&apos; to &apos;StudentDAO&apos;&#x0D;&#x0A;- Original project: &apos;성적통계프로그램arraylist과제&apos;&#x0D;&#x0A;- Original element: &apos;성적통계프로그램arraylist과제.StudnetDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;성적통계프로그램arraylist과제.StudentDAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;StudnetDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;성적통계프로그램arraylist과제{StudnetDAO.java[StudnetDAO" matchStrategy="1" name="StudentDAO" qualified="false" references="true" similarDeclarations="false" stamp="1575012940625" textual="false" version="1.0"/>
+</session>

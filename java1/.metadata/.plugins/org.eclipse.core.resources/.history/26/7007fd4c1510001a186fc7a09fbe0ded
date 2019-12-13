@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class mainClass {
+	public static void main(String[] args) {
+		
+		/*		각각함수로만듦
+		 *  String str[][];
+		 *  1.학생정보 추가(이름, 나이, 영어, 수학)
+		 *  2.학생정보 삭제
+		 *  3.학생정보 검색
+		 *  4.학생정보 수정
+		 *  5.학생성적 조회(1명)  총점
+		 *  6.학생성적 총점
+		 *  7.학생성적 평균
+		 *  8.학생 성적순 출력
+		 *  
+		 *  어느작업을 하시겠습니까?
+		 */
+		//선언부 필요한것
+		
+		String datas[][] = new String[10][4];
+
+	
+		
+		// [회원수][정보]
+		while (true) {
+			System.out.println("1.학생정보 추가(이름, 나이, 영어, 수학)");
+			insert(datas);
+			System.out.println("2.학생정보 삭제");
+			System.out.println("3.학생정보 검색");
+			System.out.println("4.학생정보 수정");
+			System.out.println("5.학생성적 조회(1명)  총점");
+			System.out.println("6.학생성적 총점");
+			System.out.println("7.학생성적 평균");
+			System.out.println("8.학생 성적순 출력");
+
+		}
+		
+		
+
+	}
+	static void insert(String arr[][]) {
+		Scanner scan = new Scanner(System.in);
+
+		int number  = 0;
+		String strNum[];
+		
+		System.out.println("추가할 학생의 숫자를 입력하세요");
+		int addnumber = scan.nextInt();
+		
+		strNum = new String[addnumber];
+		while (number < addnumber) {
+			String name;
+			String age;
+			String eng;
+			String math;
+			System.out.println("이름, 나이, 영어점수, 수학점수 입력해주세요");
+
+			System.out.println("이름: ");
+			name = scan.next();
+
+			System.out.println("나이: ");
+			age = scan.next();
+
+			System.out.println("영어점수: ");
+			eng = scan.next();
+
+			System.out.println("수학점수: ");
+			math = scan.next();
+
+			arr[0][0] = name;
+			arr[0][1] = age;
+			arr[0][2] = eng;
+			arr[0][3] = math;
+
+			number++;
+		}		
+		
+	}
+
+}

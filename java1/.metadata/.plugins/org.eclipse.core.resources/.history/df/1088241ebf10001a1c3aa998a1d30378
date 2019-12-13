@@ -1,0 +1,171 @@
+import java.util.Scanner;
+
+public class lecmainClass {
+	public static void main(String[] args) {
+		/*		각각함수로만듦
+		 *  String student[][];
+		 *  1.학생정보 추가(이름, 나이, 영어, 수학)
+		 *  2.학생정보 삭제
+		 *  3.학생정보 검색
+		 *  4.학생정보 수정
+		 *  5.학생성적 조회(1명)  총점
+		 *  6.전체 학생성적 총점
+		 *  7.전체 학생성적 평균
+		 *  8.학생 성적순 출력
+		 *  
+		 *  어느작업을 하시겠습니까?
+		 */
+		
+		String student[][] = new String[10][4];
+		
+		//student[0][0] = new String(); //>>동적할당, 위의것과 다름, 위의것은 변수만선언해놓은것임, 
+		
+		/*
+		for (int i = 0; i < student.length; i++) {
+			for (int j = 0; j < student[0].length; j++) {
+					student[i][j] = new String(""); //null익셉션이 보기싫을때  = ""; 와 동일
+			}
+		}
+		*/ 
+		
+		//nextNode = 1  출력결과값
+	//	insert(student);
+		
+	//	delete(student);
+		
+		select(student);
+	
+	
+		
+	}
+	static void insert(String student[][]) {//
+		Scanner sc = new Scanner(System.in);
+		
+		//next node == null 찾는다
+		//(어느부분의 노드에다가 넣을것이냐, node는 arrayList의 연결부분-같은것 ㅁ-ㅁ-ㅁ)
+		
+		int nextNode = 0;
+		for (int i = 0; i < student.length; i++) {
+//			for (int j = 0; j < student[i].length; j++) { 사실이작업은 필요없음	
+				if(student[i][0] == null) {
+					nextNode =i; //
+					break;
+				}
+//			}
+		}
+		System.out.println("nextNode = " + nextNode);
+		
+		String column[] = {"name", "age", "eng", "math"};
+		
+		for (int j = 0; j < column.length; j++) {
+			System.out.print(column[j] +"= ");
+			//String name = sc.next();
+			student[nextNode][j] = sc.next();
+			/*
+		 가독성이더좋음
+		System.out.print("name: ");
+		String name = sc.next();
+		student[nextNode][0] = name;
+			 */
+			
+		}
+		
+		for (int i = 0; i < column.length; i++) {
+			System.out.print(student[nextNode][i] +" ");
+		}
+		
+		System.out.println("\n 데이터가 등록되었습니다.");
+	}
+	
+	static void delete(String student[][]) {
+		Scanner sc = new Scanner(System.in);
+		
+		//입력
+		System.out.println("삭제할 학생의 이름을 입력=");
+		String name = sc.next();
+		
+		//찾기 
+		int findIndex = -1;
+		for (int i = 0; i < student.length; i++) {
+			if(name.equals(student[i][0])) {
+				findIndex = i;
+				break;
+			}
+		}
+		
+		//삭제
+		if(findIndex == -1) {
+			System.out.println("학생데이터를 찾지 못했습니다.");
+		}else {
+			for (int i = 0; i < student[0].length; i++) {
+				student[findIndex][i] = "";
+			}
+			System.out.println("학생데이터를 삭제하였습니다.");
+		}
+	}
+	
+	static void select(String student[][]) {
+		Scanner sc = new Scanner(System.in);
+		//입력
+		System.out.println("검색할 학생의 이름을 입력=");
+		String name = sc.next();
+		
+		//찾기 
+		int findIndex = -1;
+		for (int i = 0; i < student.length; i++) {
+			if(name.equals(student[i][0])) {
+				findIndex = i;
+				break;
+			}
+		}
+		
+		if(findIndex == -1) {
+			System.out.println("학생데이터를 찾지 못했습니다.");
+		}else {
+			System.out.println("학생데이터를 찾았습니다.");
+				System.out.println("이름: " +student[findIndex][0]);
+				System.out.println("나이: " +student[findIndex][1]);
+				System.out.println("영어: " +student[findIndex][2]);
+				System.out.println("수학: " +student[findIndex][3]);
+		
+		}
+	}
+	
+	static void update(String student[][]) {
+		Scanner sc = new Scanner(System.in);
+		//입력
+		System.out.println("수정할 학생의 이름을 입력=");
+		String name = sc.next();
+		
+		//찾기 
+		int findIndex = -1;
+		for (int i = 0; i < student.length; i++) {
+			if(name.equals(student[i][0])) {
+				findIndex = i;
+				break;
+			}
+		}
+		
+		if(findIndex == -1) {
+			System.out.println("학생데이터를 찾을 수 없습니다.");
+		}else {
+			System.out.println("학생데이터를 찾았습니다.");
+			System.out.println("수정할 점수를 입력해 주십시오");
+			System.out.println("영어 =");
+			String eng = sc.next();
+			System.out.println("수학=");
+			String math = sc.next();
+			
+			student[findIndex][2] = eng;
+			student[findIndex][3] = math;
+			
+			System.out.println("점수를 수정하였습니다.");
+			
+			System.out.println("영어: "+student[findIndex][2]);
+			System.out.println("수학: "+student[findIndex][3]);
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package WindowChangePanel;
+
+import java.awt.Color;
+import java.awt.Panel;
+
+public class panelOne extends Panel{
+
+	public panelOne() {
+		setLayout(null);
+		
+		setBounds(0,0,640, 480);
+		setBackground(Color.red);
+	}
+}

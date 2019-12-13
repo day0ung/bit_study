@@ -1,0 +1,38 @@
+package view;
+
+import java.awt.Color;
+
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+public class UpdatePitPanel extends JPanel {
+
+	JLabel label[] = new JLabel[3];
+
+	JTextField textField[] = new JTextField[3];
+
+	public UpdatePitPanel(String name) { // 이름을입력했을때 넘겨받는부분 String name (UpdateView 에서 생성되서 넘어옴
+		setLayout(null);
+		JOptionPane.showMessageDialog(null, "UpdatePitPanel");
+
+		String title[] = { "승:", "패:", "방어율" };
+
+		for (int i = 0; i < title.length; i++) {
+			label[i] = new JLabel();
+			label[i].setText(title[i]);
+			label[i].setBounds(30, 50 + 40 * i, 100, 30);
+
+			textField[i] = new JTextField();
+			textField[i].setBounds(180, 50 + 40 * i, 200, 30);
+
+			add(label[i]);
+			add(textField[i]);
+		}
+
+		setBounds(0, 0, 640, 450);
+		setBackground(Color.green);
+
+	}
+}

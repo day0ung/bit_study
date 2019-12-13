@@ -1,0 +1,9 @@
+package child;
+
+import parent.ParentClass;
+
+public class TomClass extends ParentClass {
+	public void ParentMethod() {
+		System.out.println("TomClass ParetMethod()");
+	}
+}

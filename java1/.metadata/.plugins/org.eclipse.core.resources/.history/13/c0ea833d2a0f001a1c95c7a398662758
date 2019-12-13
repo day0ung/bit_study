@@ -1,0 +1,21 @@
+package function1;
+
+public class mainClass2 {
+	public static void main(String[] args) {
+		/*  //자료형 매개변수 리턴값을 배열로받을 수 있다.
+		 *  array      array
+		 *  자료형 함수명(매개변수)
+		 *  	처리
+		 *  	리턴값  array
+		 * 
+		 */
+	}
+	
+	//				value,  address     //두가지가 다름, 앞의 것과 뒤이 차이점 앞은 값이 넘어옴, 뒤는 자기자신(=pointer)이 넘어옴
+	static int func(int n, int arr[]) {
+		System.out.println("n =" +n);
+		System.out.println("arr[0]" +arr[0]);
+		return n;
+	}
+
+}

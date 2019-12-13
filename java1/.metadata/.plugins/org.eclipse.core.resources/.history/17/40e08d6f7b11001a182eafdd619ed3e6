@@ -1,0 +1,16 @@
+package staticClass;
+
+public class mainClass1 {
+	public static void main(String[] args) {
+		
+		System.out.println("sn = "+StaticClass.staticNumber);
+		StaticClass.staticNumber = 1;
+		//동적할당안해도 불러올수있음
+		//static변수는 선언과동시에 자동으로 e
+		System.out.println("sn = "+StaticClass.staticNumber);
+		
+		StaticClass sc = new StaticClass();
+		System.out.println("sn = "+sc.staticNumber);
+	}
+
+}

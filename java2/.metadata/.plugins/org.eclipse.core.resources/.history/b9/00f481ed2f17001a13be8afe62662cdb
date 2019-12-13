@@ -1,0 +1,19 @@
+package game;
+
+
+
+import javax.swing.JFrame;
+
+public class GbbGame extends JFrame {
+	public GbbGame() {
+		super("가위바위보 게임 과제");
+		
+		setSize(800, 600);
+		setLocation(100, 0);
+		setVisible(true);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+	
+}

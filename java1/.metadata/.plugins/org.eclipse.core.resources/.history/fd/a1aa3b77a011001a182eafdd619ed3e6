@@ -1,0 +1,55 @@
+
+public class mainClass {
+	public static void main(String[] args) {
+		MyClass cls = new MyClass();
+		cls.method();
+		cls.method();
+		/* 출력결과
+				num = 1
+				number =1
+				stNumber = 1
+				num = 1
+				number =2
+				stNumber = 2
+				*/
+		MyClass cls1 = new MyClass();
+		cls1.method();
+		cls1.method();
+		//instance가 달라져서 멤버변수는 다시시작함
+		//static은 늘어남
+		
+		/* 멤버변수와 static변수의 차이점
+				num = 1
+				number =1
+				stNumber = 3
+				num = 1
+				number =2
+				stNumber = 4
+		 */
+		
+		//상수 (고칠수없는수, 주로 대입할때 값을갖고올때 사용됨)
+		final int NUMBER = 3;
+		//NUMBER = 5; //에러남
+		int num;
+		num = NUMBER;
+
+		
+	}
+}
+
+class MyClass{
+	private int number; //member 변수
+	public static int stNumber; //static 변수
+	
+	public void method() {
+		int num = 0; //local변수(메소드안에서만돈다)
+		num++;
+		this.number++;
+		MyClass.stNumber++;
+		
+		System.out.println("num = " +num); //계속 1만나옴, 
+		System.out.println("number =" +number);
+		System.out.println("stNumber = " + stNumber);
+		
+	}
+}

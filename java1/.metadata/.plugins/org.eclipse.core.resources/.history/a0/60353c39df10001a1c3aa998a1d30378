@@ -1,0 +1,13 @@
+package constructor;
+
+public class MyClass {
+	
+	public MyClass() {
+		System.out.println("MyClass MyClass()");
+	}
+	
+	public MyClass(int n) {
+		System.out.println("MyClass MyClass(int n)");
+	}
+
+}

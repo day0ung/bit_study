@@ -1,0 +1,39 @@
+package main;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+
+public class mainClass {
+
+	public static void main(String[] args) {
+		/*
+		   1. 접속을 해야할 서버의 IP (주소 설정) - Socket
+		   2. Socket 생성
+		   3. 접속 connect(항상 connect가 먼저임)
+		   4. packet전송
+		 */
+											//192.168.2.22자신의 아이피지정
+											//포트넘버는 내가지정해준 9000
+		InetSocketAddress sockAddr = new InetSocketAddress("192.168.2.22", 9000);
+		
+		Socket socket = new Socket();
+		
+		//Server접속			//timeout접속이 언제까지 되다가 안되면 끊어라 (1000= 1초)
+		try {
+			socket.connect(sockAddr, 10000);
+			
+			InetAddress inetAddr;
+			if((inetAddr = socket.getInetAddress()) != null) {
+				System.out.println("서버연결 성공:" + inetAddr);
+			}else {
+				System.out.println("서버연결 실패");
+			}
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
+	}
+
+}

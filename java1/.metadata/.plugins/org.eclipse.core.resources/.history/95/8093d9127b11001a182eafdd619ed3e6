@@ -1,0 +1,10 @@
+package staticClass;
+
+public class mainClass1 {
+	public static void main(String[] args) {
+		//블록이시작하면  stack영역이 시작함 
+		int i ; //변수i 는 {에서 시작해서 }에서 끝남, 지역변수i s
+		
+	}
+
+}

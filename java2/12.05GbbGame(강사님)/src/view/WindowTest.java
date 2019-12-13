@@ -1,0 +1,195 @@
+package view;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Label;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+import game.gbbGame;
+
+public class WindowTest extends JFrame implements WindowListener, ActionListener{
+
+	JLabel frontLabel;
+	JLabel label[];
+	JButton button[];
+	
+	gbbGame game = new gbbGame();
+	
+	public WindowTest() {
+		super("가위 바위 보");		
+		setLayout(null);		
+		
+		frontLabel = new JLabel("? 승 ? 패 ? 무");
+		frontLabel.setSize(500, 30);
+		frontLabel.setLocation(70, 50);
+		frontLabel.setBackground(Color.yellow);
+		frontLabel.setHorizontalAlignment(JLabel.CENTER);
+		frontLabel.setOpaque(true);
+		add(frontLabel);
+		
+		label = new JLabel[5];
+		label[0] = new JLabel("Player");
+		label[0].setSize(150, 30);
+		label[0].setLocation(70, 100);
+		label[0].setBackground(Color.blue);
+		label[0].setHorizontalAlignment(JLabel.CENTER); //글씨 가운데로 
+		label[0].setOpaque(true); //색관련
+		label[0].setForeground(Color.white);
+		add(label[0]);
+		
+		label[1] = new JLabel("Com");
+		label[1].setSize(150, 30);
+		label[1].setLocation(420, 100);
+		label[1].setBackground(Color.red);
+		label[1].setHorizontalAlignment(JLabel.CENTER);
+		label[1].setOpaque(true);
+		label[1].setForeground(Color.white);
+		add(label[1]);
+				
+		label[2] = new JLabel("?");
+		label[2].setSize(150, 60);
+		label[2].setLocation(70, 150);
+		label[2].setBackground(Color.blue);
+		label[2].setHorizontalAlignment(JLabel.CENTER);
+		label[2].setOpaque(true);
+		label[2].setForeground(Color.white);
+		add(label[2]);
+		
+		label[3] = new JLabel("?");
+		label[3].setSize(150, 60);
+		label[3].setLocation(240, 150);
+		label[3].setBackground(Color.green);
+		label[3].setHorizontalAlignment(JLabel.CENTER);
+		label[3].setOpaque(true);
+		label[3].setForeground(Color.white);
+		add(label[3]);
+		
+		label[4] = new JLabel("?");
+		label[4].setSize(150, 60);
+		label[4].setLocation(420, 150);
+		label[4].setBackground(Color.red);
+		label[4].setHorizontalAlignment(JLabel.CENTER);
+		label[4].setOpaque(true);
+		label[4].setForeground(Color.white);
+		add(label[4]);
+		
+		
+		button = new JButton[3];
+		String btnTitle[] = { "가위", "바위", "보" };
+				
+		for (int i = 0; i < btnTitle.length; i++) {
+			button[i] = new JButton();
+			button[i].setBounds(120 + 140 * i, 250, 120, 50);
+			button[i].setLabel(btnTitle[i]); //옛날엔썻는데 요즘안쓴다--
+			button[i].addActionListener(this); //액션퍼폼드 메소드로 
+			add(button[i]);			
+		}		
+					
+		setSize(640, 480);	// 윈도우의 크기 (폭, 높이)
+		setLocation(100, 0);	// 윈도우 실행위치
+		setVisible(true);	// 윈도우 시각화	
+		
+		addWindowListener(this);
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		JButton btn = (JButton)e.getSource();
+		String btnTitle = btn.getLabel();
+		game.init();
+		
+		if(btnTitle.equals("가위")) {
+			game.setUserNum(0);
+		}
+		else if(btnTitle.equals("바위")) {
+			game.setUserNum(1);
+		} 
+		else if(btnTitle.equals("보")) {
+			game.setUserNum(2);
+		} 
+		
+		label[2].setText(game.getUser());
+		label[4].setText(game.getCom());
+				
+		String msg = game.play();
+		label[3].setText(msg);	
+		
+		if(msg.contains("승리")) {
+			label[3].setFont(new Font("Serif", Font.BOLD, 48));
+			label[3].setBackground(Color.blue);
+		}else if(msg.contains("패전")) {
+			label[3].setFont(null);
+			label[3].setBackground(Color.red);
+		}else {
+			label[3].setFont(null);
+			label[3].setBackground(Color.green);
+		}
+		
+		int win = game.getWin();
+		int lose = game.getLose();
+		int draw = game.getDraw();
+		
+		frontLabel.setText(win + "승 " + lose + "패 " + draw + "무");
+	}
+
+
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowOpened");
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowClosing");
+		System.exit(0);		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowClosed");
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowIconified");
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowDeiconified");
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowActivated");
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("windowDeactivated");
+	}
+	
+	
+}
+
+
+
+
+

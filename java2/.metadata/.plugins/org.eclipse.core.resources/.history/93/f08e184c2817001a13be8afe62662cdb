@@ -1,0 +1,47 @@
+package awt;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
+import java.awt.Panel;
+
+import javax.swing.JFrame;
+
+public class Counter extends JFrame  {
+	
+	Button plusBtn, minusBtn;
+	
+
+	public Counter() {
+		super("버튼누르면 카운트를세는 과제");
+	    setLayout(new GridLayout(2, 1));
+		
+		Label label = new Label("LABEL");
+		label.setBounds(100, 100, 300, 30);
+		add(label);
+		
+		//아래부분		
+		
+		Panel panel = new Panel();
+		panel.setBackground(Color.BLUE);
+		panel.setLayout(new GridLayout(1, 2));
+		add(panel);
+		
+		plusBtn = new Button("PLUS");
+		panel.add(plusBtn);
+		
+		minusBtn = new Button("MINUS");
+		panel.add(minusBtn);
+		
+		setSize(800, 600);
+		setLocation(100, 0);
+		setVisible(true);
+		
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	
+		
+	}
+}

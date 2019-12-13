@@ -1,0 +1,9 @@
+package oop3;
+
+//java 다중상속 불가
+public class ChildClass extends SuperClass { //상속하려면 extends쓰고 클래스명기입
+	public ChildClass() {
+		
+	}
+
+}

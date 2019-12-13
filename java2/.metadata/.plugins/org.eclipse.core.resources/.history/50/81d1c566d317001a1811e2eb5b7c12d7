@@ -1,0 +1,5 @@
+package WindowChange;
+
+public class Singleton {
+
+}

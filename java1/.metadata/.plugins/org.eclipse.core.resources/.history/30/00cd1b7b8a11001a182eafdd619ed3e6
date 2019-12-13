@@ -1,0 +1,22 @@
+package oop05;
+
+import child.JaneClass;
+import child.TomClass;
+import parent.ParentClass;
+
+
+public class mainClass {
+	public static void main(String[] args) {
+		
+		TomClass tc = new TomClass();
+		JaneClass jc = new JaneClass();
+		
+		tc.ParentMethod();
+		jc.ParentMethod();
+		
+		// Over Ride의 목적: 하나의 instance형으로 관리를 용이하게 하기위함
+		
+		ParentClass p1 = new TomClass(); 
+		p1.ParentMethod();
+	}
+}

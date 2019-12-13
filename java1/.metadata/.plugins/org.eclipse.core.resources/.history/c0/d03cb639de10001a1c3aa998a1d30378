@@ -1,0 +1,33 @@
+package constructor;
+
+public class mainClass {
+	public static void main(String[] args) {
+		/* 
+		 *   				structure[참고]c언어
+		 *   				struct AAA{
+		 *   					int i;  0번째에 int
+		 *   					char c; 1 
+		 *   				}
+		 *   
+		 *   				AAA = aaa{1,'A'};
+		 *   constructor: 생성자
+		 *   			    함수(메소드)
+		 *   			  class명과 같은 method
+		 *   			  return 값이 없다.
+		 *   			  Over Loading이 가능
+		 *   			    자동호출(클래스생성시)
+		 *   			    별도의 호출이 불가능하다(1회)
+		 *   			    생략이 가능하다	
+		 *   			    초기값 설정에 많이사용
+		 *   destructor : 소멸자( c++)
+		 *   				자동호출
+		 *   				java에는 없음
+		 *   
+		 *   this 참조  
+		 */
+		MyClass cls = new MyClass();
+		
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+package constructor;
+
+public class Student {
+	private int number;
+	private String name;
+	
+	
+	/*
+	 * this 참조
+	 * 자기 객체가 저장되어 있는 heap영역의 주소
+	 */
+	public Student() {
+		
+	}
+
+}

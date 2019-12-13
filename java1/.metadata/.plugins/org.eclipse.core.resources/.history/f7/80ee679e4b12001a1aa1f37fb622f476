@@ -1,0 +1,62 @@
+import java.lang.reflect.Member;
+import java.util.Scanner;
+
+public class MemberDAO {
+	Scanner sc = new Scanner(System.in);
+	private MemberDTO member[];
+	private int MEMBER_NUM =10;
+	
+	private int count; //필요햠
+
+	//생성자만들어야함
+	public MemberDAO() {
+		//생성자는 한번실행됨, memberdto클래스 배열잡기
+		member = new MemberDTO[MEMBER_NUM];//변수만 10개잡힌거임값이있는건아님)
+						//정적으로들어가있는 상수의값 대입
+		count = 0;
+		
+	}
+	
+	public void insert() {
+		System.out.println("====입력====");
+		System.out.print("번호: ");
+		int number = sc.nextInt();
+		System.out.print("이름: ");
+		String name = sc.next();
+		System.out.print("나이: ");
+		int age = sc.nextInt();
+		System.out.print("주소: ");
+		String address = sc.next();
+		//생성자를통해서 집어넣음
+		MemberDTO dto = new MemberDTO(number, name, age, address);
+		//멤버배열안에집어넣음
+		member[count] =dto;
+		//멤버dto배열 한번에선언하기
+		//member[count] = new MemberDTO(number, name, age, address);
+		
+		count++;
+	}
+
+	public void delete() {
+
+	}
+
+	public void select() {
+
+	}
+
+	public void update() {
+
+	}
+	
+	public void allPrint() {
+		for (int i = 0; i < member.length; i++) {
+			MemberDTO dto = member[i];
+			if(dto != null && dto.getName().equals("")) {
+				System.out.println(dto.toString());
+			}
+			
+		}
+		
+	}
+}

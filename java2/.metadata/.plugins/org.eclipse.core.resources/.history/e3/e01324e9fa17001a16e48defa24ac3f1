@@ -1,0 +1,84 @@
+package baseballMember;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+
+import javax.swing.JLabel;
+	
+public class Insert extends Frame implements WindowListener{
+	
+	JLabel frontLabel;
+	Button menu, add;
+	public Insert() {
+		setLayout(null);
+		
+		frontLabel = new JLabel("Menu");
+		frontLabel.setSize(300, 30);
+		frontLabel.setLocation(70, 50);
+		frontLabel.setBackground(Color.yellow);
+		frontLabel.setOpaque(true);
+		frontLabel.setHorizontalAlignment(JLabel.CENTER);
+		add(frontLabel);
+		
+		
+		menu = new Button();
+		menu.setBounds(70, 540, 200, 30);
+		
+		add = new Button();
+		add.setBounds(140, 540, 200, 30);
+		
+		setSize(500, 600); 
+		setLocation(0, 0); 
+		setBackground(Color.BLUE);
+		
+		setVisible(true);
+				
+		
+	}
+
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

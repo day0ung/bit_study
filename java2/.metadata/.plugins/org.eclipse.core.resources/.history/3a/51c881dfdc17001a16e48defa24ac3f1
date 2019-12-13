@@ -1,0 +1,9 @@
+package awtSample01;
+
+import java.awt.event.WindowListener;
+
+import javax.swing.JFrame;
+
+public class WindowTest extends JFrame implements WindowListener {
+
+}

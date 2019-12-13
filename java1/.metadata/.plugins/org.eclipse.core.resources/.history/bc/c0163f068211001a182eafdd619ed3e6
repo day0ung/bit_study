@@ -1,0 +1,12 @@
+package oop3;
+//부모클래스
+public class SuperClass {
+	public SuperClass() { //생성자
+		
+	}
+	
+	public void Super_method() {
+		System.out.println("SuperClass Super_method()");
+	}
+
+}

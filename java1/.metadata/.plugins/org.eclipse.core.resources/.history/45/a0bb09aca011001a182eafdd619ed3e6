@@ -1,0 +1,10 @@
+package baseballClass;
+
+public class mainClass {
+	baseball ball = new baseball();
+	
+	ball.init();
+	
+	
+
+}

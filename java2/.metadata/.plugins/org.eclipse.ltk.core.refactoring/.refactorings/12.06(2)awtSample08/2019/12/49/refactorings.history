@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;awtSample08.WindowClass&apos; to &apos;WindowTest&apos;&#x0D;&#x0A;- Original project: &apos;12.06(2)awtSample08&apos;&#x0D;&#x0A;- Original element: &apos;awtSample08.WindowClass&apos;&#x0D;&#x0A;- Renamed element: &apos;awtSample08.WindowTest&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;WindowClass&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;awtSample08{WindowClass.java[WindowClass" matchStrategy="1" name="WindowTest" qualified="false" references="true" similarDeclarations="false" stamp="1575596019718" textual="false" version="1.0"/>
+</session>

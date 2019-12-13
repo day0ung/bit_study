@@ -1,0 +1,14 @@
+package child;
+
+public class ChildClass {
+	private String name;
+	
+	public ChildClass() { //기본생성자
+		System.out.println("ChildClass ChildClass()");
+	}
+	
+	public ChildClass(String name) {
+		this.name = name;
+		System.out.println("ChildClass ChildClass(String name)");
+	}
+}

@@ -1,0 +1,39 @@
+package work2Class화하기;
+
+import java.util.Scanner;
+
+public class MemberDao {
+	MemberDTO dto[] = new MemberDTO[10];
+	Scanner scan = new Scanner(System.in);
+	
+	
+	public void insert() {
+		for (int i = 0; i < dto.length; i++) {
+			dto[i] = new MemberDTO();
+		}
+			int w = 0;
+			while(w <dto.length) {
+				System.out.println((w+1)+"번째 데이터추가");
+				System.out.print("번호: ");
+				dto[w].setNumber(scan.nextInt());
+				System.out.print("이름: ");
+				dto[w].setName(scan.next());
+				System.out.print("나이: ");
+				dto[w].setAge(scan.nextInt());
+				System.out.print("주소: ");
+				dto[w].setAddress(scan.next());
+				w++;
+			}
+		}
+	}
+	
+	
+	
+		
+		
+	
+	
+	
+
+
+

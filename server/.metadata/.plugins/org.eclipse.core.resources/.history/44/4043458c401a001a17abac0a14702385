@@ -1,0 +1,6 @@
+package main;
+
+public interface A {
+	 void f(int i);
+	 void g(int g);
+}

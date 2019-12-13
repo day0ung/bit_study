@@ -1,0 +1,7 @@
+package dao;
+
+public class AllprintClass {
+	public AllprintClass() {
+		
+	}
+}

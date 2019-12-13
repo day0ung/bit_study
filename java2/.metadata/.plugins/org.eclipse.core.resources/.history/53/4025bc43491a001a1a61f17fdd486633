@@ -1,0 +1,46 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import panel.PitcherPanel;
+
+public class InsertView extends JFrame {
+	Container contentPane;
+	
+	public InsertView() {
+		super("InsertView");
+		
+		
+		JLabel label = new JLabel("추가");
+		label.setBounds(200, 30, 200, 30);
+		add(label);
+		
+		//컨테인에 넣을 패널선언
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.yellow);
+		panel.add(label);
+		/*
+		JPanel botPanel = new JPanel();
+		botPanel.setBackground(Color.blue);
+		botPanel.add(label);
+		*/
+		PitcherPanel pp = new PitcherPanel();
+		
+		//컨테이너를 줘서 레이아웃대용으로사용(패널추가한것을 컨테이너에 잡아넣음
+		contentPane = getContentPane(); //jframe에만있음
+		contentPane.add(panel, BorderLayout.NORTH);
+		contentPane.add(pp, BorderLayout.CENTER);
+		
+		setBounds(0, 0, 640, 480);
+		setBackground(Color.red);
+		setVisible(true);
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+}

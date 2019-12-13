@@ -1,0 +1,19 @@
+package main;
+
+public class test {
+	public static void main(String[] args) {
+		boolean b = true;
+		long l = 10L;
+		double d = 13.4;
+		float f = 13.4F;
+		String str = "12";
+		switch (str) {
+		case 1:
+			
+			break;
+
+		default:
+			break;
+		}
+ 	}
+}

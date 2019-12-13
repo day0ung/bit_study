@@ -1,0 +1,28 @@
+package view;
+
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class MenuView extends JFrame {
+	
+	JButton button[];
+	
+	public MenuView() {
+		super("MenuView");
+		
+		setLayout(null); //레이아웃을 그리드로하고 그안에 패널을 null로잡으면됨 둘중하나는 써야함
+		
+		//버튼은 추가, 삭제, 검색, 수정, 모두출력이 있어야함
+		String title[] = {"추가", "삭제", "검색", "수정", "모두출력"};
+		button = 
+		
+		
+		setBounds(0, 0, 640, 480);
+		setBackground(Color.gray);
+		setVisible(true);
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+	}
+}

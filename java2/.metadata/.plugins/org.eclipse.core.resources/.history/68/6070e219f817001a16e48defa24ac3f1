@@ -1,0 +1,28 @@
+package baseballMember;
+
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Menu;
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+	
+public class MemPanel extends Panel implements ActionListener{
+	
+	MenuClass menu;
+	JButton one;
+	public MemPanel(MenuClass menu) {
+		
+		one = new JButton();
+		one.setLabel("선수추가");
+		one.setBounds(70, 90, 200, 30);
+		add(one);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+}

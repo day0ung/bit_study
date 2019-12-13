@@ -1,0 +1,66 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Scanner;
+
+public class MemberDAO {
+	Scanner scan = new Scanner(System.in);
+	private HashMap<Integer, HumanDTO> map;
+	
+	private HumanDTO human;
+	private HumanDTO bat;
+	private HumanDTO pit;
+	
+	public MemberDAO() {
+		map =  new HashMap<Integer,HumanDTO>();
+		bat = new Batter();
+		pit = new Pitcher();
+		
+		HumanDTO dto1 = new HumanDTO(001,"롯데", 24, 189.0);
+		HumanDTO dto2 = new HumanDTO(002,"삼성", 23, 179.5);
+		HumanDTO dto3 = new HumanDTO(003,"현대", 27, 181.4);
+		
+	}
+	
+	public void insert() {
+		HumanDTO dto = new HumanDTO();
+		System.out.println("번호 : ");
+		dto.setNumber(scan.nextInt());
+		System.out.println("이름: ");
+		dto.setName(scan.next());
+		System.out.println("나이: ");
+		dto.setAge(scan.nextInt());
+		System.out.println("키: ");
+		dto.setHeight(scan.nextDouble());
+		
+		map.put(001, dto);
+		
+		Iterator<Integer> myit = map.keySet().iterator();
+		while(myit.hasNext()) {
+			Integer ikey = myit.next();
+			System.out.println("key: " + ikey);
+			HumanDTO hdto = map.get(ikey);
+			System.out.println("value: "+ hdto);
+		}
+	}
+	public void delete() {
+		System.out.println("삭제할 번호: ");
+		HumanDTO delDTO = map.remove(scan.nextInt());
+		System.out.println("삭제된 번호: "+delDTO);
+	}
+	
+	public void select() {
+		
+		System.out.println("검색할 번호 입력:");
+		int select = scan.nextInt();
+		if(map.containsKey(select)) {
+			HumanDTO selDTO = map.get(select);
+			System.out.println(select);
+		}
+
+		
+	}
+	
+
+
+}

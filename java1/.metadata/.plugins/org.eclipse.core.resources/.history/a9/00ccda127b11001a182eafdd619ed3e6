@@ -1,0 +1,23 @@
+package staticClass;
+
+public class StaticClass {
+	
+	private int number;
+	public static int staticNumber;
+	/*
+	 * 
+	 *   메모리의영역
+	 * stack ==local  
+	 * heap == new(동적할당) 
+	 * static == 정적- 메모리에상주함, 프로그램시작하면 자동으로 잡힘, 값을 계속유지함
+	 * sys
+	 */
+	
+	public StaticClass() { 
+		
+	}
+	public void method() {
+		staticNumber++;
+	}
+
+}

@@ -1,0 +1,39 @@
+package oopExStarCraft;
+
+import java.util.Stack;
+
+import child.Marin;
+import child.Race;
+import child.Tank;
+import parent.StarCraft;
+
+//oop05다음 상속예시
+public class mainClass {
+	public static void main(String[] args) {
+		//unit 30
+		//어떤사람은 마린을더많이, 비행기를더많이쓸수도있다.
+		//선택의폭을 넓혀야함
+		//아래는 지정되어있는것임 왔다갔다할수없음
+		Marin m[] = new Marin[10];
+		Race r[] = new Race[10];
+		Tank t[] = new Tank[10];
+		
+		
+		//위의것과의 차이점
+		//유동적임, 마린만다들어갈수있음
+		StarCraft starArr[] = new StarCraft[5];
+		starArr[0] = new Marin(); 
+		starArr[1] = new Tank(); 
+		starArr[2] = new Marin(); 
+		starArr[3] = new Tank(); 
+		starArr[4] = new Tank();
+		
+		//Over Ride된 메소드 라이프를 보기위해서 for
+		for (int i = 0; i < starArr.length; i++) {
+			starArr[i].life();
+		}
+		
+				
+	}
+
+}

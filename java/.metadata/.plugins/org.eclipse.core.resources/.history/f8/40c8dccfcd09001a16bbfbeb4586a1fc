@@ -1,0 +1,21 @@
+package work1;
+
+import java.util.Scanner;
+
+//두개의 정수값을 입력받고  x,y 변수에 저장한 후에 x,y값을 바꾸고 
+//출력하도록 프로그램을 작성하라
+public class java05 {
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int x,y;
+		
+		x = 1;
+		y = 2;
+		
+		System.out.println(x);
+
+		
+		
+	}
+
+}
