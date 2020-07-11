@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>환영합니다</h1>
+
+<form name="frm">
+현재 시각은<input type="text" size="20" name="timebox">입니다
+</form>
+
+<script type="text/javascript">
+function nowTime() {
+
+	var now = new Date();
+
+		var hour = now.getHours(); // 0 ~ 23 -> 1 ~ 12
+		var minute = now.getMinutes();
+		var second = now.getSeconds();
+
+		if (hour < 10) {
+			hour = "0" + hour; // 0 ~ 9  9:12 -> 09:12
+		}
+		if (minute < 10) {
+			minute = "0" + minute;
+		}
+		if (second < 10) {
+			second = "0" + second;
+		}
+
+		document.frm.timebox.value = hour + ":" + minute + ":" + second;
+		//document.frm.timebox.value = hour;
+		//document.frm.timebox.value = now;
+	}
+	setInterval("nowTime()", 1000);
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	JSON -> Java Script Object Notation(표기법)
+			데이터를 저장, 전송, 불러오기
+			object화해서 데이터를 넘겨줌
+	Array가 발전해서 Json이 된것
+	
+	한쌍(pair)로 관리됨 key:value == HashMap
+	
+	Web(client)  -  Json
+	Java(Server) -  HashMap,List
+									
+ -->
+ 
+ <p id="demo"></p>
+ 
+ <script type="text/javascript">
+ //javascript에서 사용하는 배열
+/*  
+ var arr = [1, 2, 3, 4, ]; 
+ var arr2 = [ [1, 2], [3,4] ]; //2차원배열
+ arr2[1][0]; //3을 출력하고 싶을때 
+ */
+ 
+ //json data 배열사용
+ var arr =[ /* JSON */
+	 {
+		"name":"홍길동", 
+		"age":24 //"24"해도됨
+	 },
+	 {
+		"name":"일지매",
+		"age":21
+	 },
+	 {
+		 "name":"성춘향",
+		 "age":21
+	 }
+	 
+ ];
+ 
+ //json데이터 출력하기
+ document.getElementById("demo").innerHTML 
+ 	//= arr[0].name + " " + arr[0].age; 이걸더많이씀
+ 	= arr[1]["name"] + " " + arr[1]["age"];
+ 	
+ 	
+ //아래코드는 json이 아님 string(문자열)이다	
+ var arrText = '{"name":"홍길동","age":"24","주소":"서울시"}';
+ //var arrText = {"name":"홍길동","age":"24","주소":"서울시"}; 작은따옴표를 없애면 json임
+ 	
+ var jsonObj = JSON.parse(arrText); //JSON.parse는 string을 json으로 변환해주는 작엄
+ var str = JSON.stringify(jsonObj); //JSON.stringify ==json을 string으로 변환
+ 
+ document.getElementById("demo").innerHTML 
+ 	//=arrText.name; //출려결과 undefiend가 나옴 접근을못함(json이 아니기 때문에)
+ 	=jsonObj.name +" " + jsonObj.age + " " +jsonObj.주소; //출력결과 홍길동
+ 	
+
+ </script>
+</body>
+</html>

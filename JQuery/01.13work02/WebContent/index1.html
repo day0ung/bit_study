@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h1>송부 정보의 입력</h1>
+
+<form id="sendForm">
+<!-- &nbsp; 웹페이지에서 공백을 표시하기 위해 사용되는 특수문자 -->
+이름:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="name" id="_name" size="20">
+<br><br>
+우편번호:&nbsp;<input type="text" name="postNum1" size="10" maxlength="3">-<input type="text" name="postNum2" size="10" maxlength="4">
+<button type="button">주소변환</button>
+<br><br>
+주소:<textarea rows="2" cols="50" name="address"></textarea>
+<br><br>
+배달시간:<select name="trans" multiple="multiple">
+			<option value="10">10:00 ~ 12:00</option>
+			<option value="12">12:00 ~ 15:00</option>
+			<option value="15" selected="selected">15:00 ~ 17:00</option>
+			<option value="17">17:00 ~ 20:00</option>
+			<option value="0">지정하지 않음</option>
+		</select>
+<br><br>
+영수증 요청:<input type="checkbox" name="money">
+<br><br>
+매거진수신:<input type="radio" name="maga" value="신청" checked="checked">신청
+<input type="radio" name="maga" value="신청하지 않음">신청하지 않음
+<br><br>
+
+<button type="button" id="btn">전송</button>
+
+</form>
+
+<script type="text/javascript">
+$(function () {	
+	
+	$("*").focus(function () {
+		$(this).css("background-color", "#ffff00");
+	});
+	$("*").blur(function () {
+		$(this).css("background-color", "#ffffff");
+	});
+	
+	$("#btn").on("click", function () {		
+		
+		if($("#_name").val() == ""){
+			alert("이름을 기입해 주십시오");
+		}
+		else{
+			$("#sendForm").attr("action", "NewFile.jsp");
+			$("#sendForm").submit();
+		}
+		
+	});
+	
+	
+});
+
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+

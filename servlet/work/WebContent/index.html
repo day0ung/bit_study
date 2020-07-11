@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+</head>
+<body>
+<!-- 
+--------------------index.html
+name text
+age select 10대20대
+성별 radio
+취미 check
+
+--------------------HelloServlet.java
+--남성사이트로 이동
+Dto 안에 저장 <- name age 취미 -> session.setAttribute
+response.sendRedirect
+
+--여성사이트로 이동
+Dto <- name age 취미 ->request.stAttribute
+forward
+
+정보출력
+-------------------ManServlet.java
+-------------------LadyServlet.java
+
+ -->
+ <form action="hello" id="frm">
+이름:<input type="text" name="name"><br>
+<select name="ages">
+	<option value="10">10대</option>
+	<option value="20">20대</option>
+	<option value="30">30대</option>
+	<option value="40">40대</option>
+	<option value="50">50대</option>
+</select>
+<br>
+<input type="radio" name="gender" value="man">남자
+<input type="radio" name="gender" value="woman" checked="checked">여자
+<br>
+<input type="checkbox" name="hobby" value="야구">야구
+<input type="checkbox" name="hobby" value="축구">축구
+<input type="checkbox" name="hobby" value="당구">당구
+<input type="checkbox" name="hobby" value="게임">게임
+<input type="checkbox" name="hobby" value="쇼핑">쇼핑
+
+<button type="button" id="btn">송신</button>
+</form>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#btn").click(function () {
+		alert("click");
+		$("#frm").submit();
+	});
+});
+
+</script>
+
+
+</body>
+</html>

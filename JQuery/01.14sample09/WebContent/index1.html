@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <img src=""photo_1.jpg" alt="" width="100" height="70">
+  <br><br>
+  <button type="button" id="btn1">앞에 추가</button>
+  <button type="button" id="btn2">뒤에 추가</button>
+
+<script type="text/javascript">
+    $(function(){
+
+      $("#btn1").click(function(){
+        // ** 이미지에 텍스트 추가  + <p>닫는태그 안적어도됨
+        var txt = $("<p>").text("text를 앞에 추가");
+        $("img").before(txt);
+      });
+
+      $("#btn2").click(function(){
+        // var img = $("<img>").attr("src", "photo_2.jpg");
+        var img = $("<img>").attr({
+                                    "src":"photo_2.jpg",
+                                    "width":"100",
+                                    "height":"70"
+                                  });
+
+        $("img").after(img);  // -- after() 이게 append겸
+      });
+
+    });
+  </script>
+
+</body>
+</html>

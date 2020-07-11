@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3 id="h3tag"><b>h3 Tag</b></h3>
+<br><br>
+
+<p id ="ptag"> p tag</p>
+<br><br>
+
+입력: <input type="text" id="text">
+<br><br>
+
+<button type="button" onclick="btnClick()">버튼</button>
+
+<script type="text/javascript">
+function btnClick() {
+		 //h3태그에 있는 문자열을 얻어와 str에 대입   // innerHTML == id tag안에 들어가있는것을 다가져옴
+/* 	var str =  document.getElementById("h3tag").innerHTML;
+	document.getElementById("ptag").innerHTML = str; // >> ptag에 올리기*/
+	
+	//textfield의 입력하는 부분의 값을 가져오게 -- value로 해야함 innerHTML 아님
+	//input값(입력하는값)은 value로 가져온다
+	var str =  document.getElementById("text").value;
+	//alert("str = " +str);
+	  document.getElementById("ptag").innerHTML = parseInt(str)*2;
+}
+
+
+</script>
+
+</body>
+</html>

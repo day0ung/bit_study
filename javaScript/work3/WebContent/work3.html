@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.tbl {border:1px solid #999; text-align:center;}
+.tbl th {background:#cecece;}
+.tbl th, td {border:1px solid #999; padding:7px;}
+</style>
+</head>
+
+<body>
+	<div>
+	<h3>문제</h3>
+	사나이들의 영화인 탑건은 군인 영화입니다.
+	그러면 육군,해군,공군 중 어느 군의 영화일까요?
+ 	<br><br>
+ 	<button onclick="answer()">답을 씁니다</button>
+ 	<br><br>
+ 	※버튼을 한 번 클릭하면 힌트가 표시됩니다.<br>
+ 	※버튼을 두 번 클릭하면 답이 표시 됩니다.
+ 	
+ 	<script type="text/javascript">
+ 	var n = 0; //global(전역변수) variable
+ 	function answer() {
+		if(n == 0) {
+			alert("[힌트] 바다에서 싸우는 군인입니다");
+			n =1;
+		}else{
+			alert("[정답] 해군입니다");
+			n=0;
+		}
+	}
+ 	
+ 	</script>
+	</div>
+	<hr>
+	<div>
+	<h3>연습문제 1번</h3> <!-- 강사님코드확인하기 -->
+		<table class="tbl">
+			<caption align="left">배열의 연산</caption>
+			<colgroup>
+		      <col width="25%">
+		      <col width="25%">
+		      <col width="25%">
+		      <col width="25%">
+		   </colgroup>
+			<tr>
+				<th>첨자</th>
+				<th>a</th>
+				<th>b</th>
+				<th>axb를  계산</th>
+			</tr>
+			
+			<tr>
+				<th>0</th>
+				<td id="0_a">5</td>
+				<td id="0_b">33</td>
+				<td>
+					<button onclick="func1()">계산결과</button>
+				</td> 
+			</tr>
+			<tr>
+				<th>1</th>
+				<td id="1_a">12</td>
+				<td id="1_b">14</td>
+				<td>
+					<button onclick="func2()">계산결과</button>
+				</td> 
+			</tr>
+			<tr>
+				<th>2</th>
+				<td id="2_a">18</td>
+				<td id="2_b">65</td>
+				<td>
+					<button onclick="func3()">계산결과</button>
+				</td> 
+			</tr>
+		</table>
+		<script type="text/javascript">
+		function func1() {
+			var a = parseInt(document.getElementById("0_a").innerHTML);
+			var b = parseInt(document.getElementById("0_b").innerHTML);
+			alert(a*b);	
+		}
+		function func2() {
+			var a = parseInt(document.getElementById("1_a").innerHTML);
+			var b = parseInt(document.getElementById("1_b").innerHTML);
+			alert(a*b);	
+		}
+		function func3() {
+			var a = parseInt(document.getElementById("2_a").innerHTML);
+			var b = parseInt(document.getElementById("2_b").innerHTML);
+			alert(a*b);	
+		}
+		</script>
+	</div>
+	<br>
+	<hr>
+	<div>
+	<h3>연습문제 2번:단가 X수량 일람표</h3>
+		<table border="1" id ="mainTable">
+			<tr>
+				<th>갯수</th>
+				<th>제품 A</th>
+				<th>제품 B</th>
+				<th>제품 C</th>
+			</tr>
+		</table>
+		
+	<script type="text/javascript">
+	//시작값 
+
+	 
+	 var a = 300;
+	 var b = 450;
+	 var c = 520;
+	 
+	 var main = document.getElementById("mainTable"); 	//table object를 갖고온것 
+	
+	 var trow = document.createElement("tr"); //<tr></tr>
+	 
+	 var thead = document.createElement("th"); //<th></th>
+	 thead.appendCild(document.createTextNode(1)); //<th>1<th>
+	 
+	 var tdata1 = document.createTextNode("td"); // <td></td>
+	 tdata1.appendChild(document.createTextNode(a + "원")); // <td>300원</td>
+		 
+	 var tdata2 = document.createTextNode("td"); // <td></td>
+	 tdata1.appendChild(document.createTextNode(b + "원")); // <td>450원</td
+	 
+	 var tdata3 = document.createTextNode("td"); // <td></td>
+	 tdata1.appendChild(document.createTextNode(c + "원")); // <td>5200원</td
+	 
+	 //th,td -> tr 추가
+	trow.appenChild(thead);
+	trow.appenChild(tdata1);
+	trow.appenChild(tdata2);
+	trow.appenChild(tdata3);
+	
+	//tr -> table추가
+	tbody.appendChild(trow);
+	</script>	
+	
+	</div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<table border="1">
+	<thead>
+	<tr>
+		<th>number</th>	
+		<th>id</th>	
+		<th>pwd</th>	
+		<th>name</th>	
+		<th>email</th>	
+		<th>auth</th>	
+	</tr>
+	</thead>
+	<tbody v-for="(data, index) in dataList">
+	<tr>
+		<td>{{ index  + 1 }}</td>
+		<td>{{ data.id }}</td>
+		<td>{{ data.pwd }}</td>
+		<td>{{ data.name }}</td>
+		<td>{{ data.email }}</td>
+		<td>{{ data.auth }}</td>
+	</tr>
+	</tbody>
+	</table>
+</div>
+
+<script type="text/javascript">
+	var vue = new Vue({
+		el:'#app',
+		data:{ 		//axios에서 데이터 받기
+			dataList: null
+		}
+	})
+										//넘겨줄데이터가 없을때 . 찍으면됨
+	axios.get('http://localhost:3000/dbtest')
+			.then(res =>{
+				//alert("통신성공");
+				//alert(JSON.stringify(res.data)); //object로 넘어옴, json을 문자열로 바꿔주는 함수: JSON.stringify
+				
+				//제일첫번째 있는 사람의 아이디 가져오기 >> data는 arr로 넘어옴
+				
+				//alert( res.data[0].);
+				//vue에 있는 data:dataList
+				vue.dataList = res.data;
+				}
+			)
+</script>
+</body>
+</html>

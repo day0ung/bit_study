@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<h1>앙케이트 조사입니다</h1>
+
+<form action="hello" id="frm">
+<table>
+<tr>
+	<td>이름</td>
+	<td><input type="text" name="name" size="20" value="홍길동"></td>	
+</tr>
+<tr>
+	<td>나이</td>
+	<td><input type="text" name="age" value="24" ></td>	
+</tr>
+<tr>
+	<td>좋아하는 과일(3가지)</td>
+	<td>
+	<select name="fruit" multiple="multiple">
+		<option value="apple" selected="selected">사과</option>
+		<option value="banana">바나나</option>
+		<option value="grape">포도</option>
+	</select>
+	</td>	
+</tr>
+</table>
+
+<button type="button" id="btn">송신</button>
+	
+</form>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	//나중에 클래스나 뭐가 추가되었을때 이거사용$(document).on()
+	$("#btn").click(function () {
+		alert("click");
+		//name이 입력되었는지?
+		$("#frm").submit();
+	});
+	
+	
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="bit.com.a.dao.MemberDao">
+					<!-- 담당mapper들이 여기로 들어오는것임 여기(xml)하고 저기(dao)하고 연결이되는것 -->
+<select resultType="java.lang.Integer" parameterType="java.lang.String" id="getId">
+SELECT NVL(COUNT(*), 0)
+FROM MEMBER
+WHERE ID=#{id}
+ </select>
+
+<insert parameterType="bit.com.a.model.MemberDto" id="addmember">
+INSERT INTO MEMBER(ID, PWD, NAME, EMAIL, AUTH)
+VALUES(#{id}, #{pwd}, #{name}, #{email}, 3)
+ </insert>
+ 
+<select resultType="bit.com.a.model.MemberDto" id="login" parameterType="bit.com.a.model.MemberDto">
+SELECT ID, NAME, EMAIL, AUTH
+FROM MEMBER
+WHERE ID=#{id} AND PWD=#{pwd} 
+</select>
+
+</mapper>
+
+
+
+

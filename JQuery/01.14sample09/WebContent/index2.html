@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <div id="div1" style="width: 500px; height: 150px; border: 1px solid blue; background-color: #00ff00">
+    <p id="pid">잠잠했던 겨울이 이제는 찬바람을 세게 내뿜고 있습니다</p>
+    <p class="cls">하루 사이 추위는 조금더 강해졌고요</p>
+    <h3 class="cls">중북부 지역에는 한파주의보도 내려졌습니다.</h3>
+  </div>
+  <button type="button"> 클릭</button>
+  <script type="text/javascript">
+    $(function (){
+      $("button").click(function(){
+        //$("*").remove(); 버튼까지 싹다 지운것
+        //$("#div1").remove(); div통채로 지우기
+        //$("#div1").empty(); div안쪽에 있는 것만 비워라
+        
+        //$(".cls").remove();
+		
+        // p테그에 있는 id와 클래스 같이 지우기
+        $("p").remove("#pid, .cls");
+      });
+    });
+  </script>
+</body>
+</html>

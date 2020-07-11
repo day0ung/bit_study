@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- 
+	Web(Client)		---- >		                  Java(Server)
+	
+	<a href="hello?username='홍길동'"  	          request.getParameter("username");
+	
+	<form action="hello" method="post">           request.getParameter("username");
+		<input type="text" name="username">
+	</form>
+	
+	JavaScript
+	<script>
+		var name = document.getElementById("name").value;
+		location.href ="hello?=username=" + name;
+	</script>	
+	
+	
+	JQuery
+	<script>
+	id값이 name이라는 것을 가정
+	var name = $("#name").val();
+	
+	-전송-
+	방법1:location.href ="hello?=username=" + name;
+	방법2:$("#frm").attr("action","hello"); --setter(attr에 파라미터가 2개있는것
+		 var action = $("#frm").attr("action"); --getter
+	
+	$("#frm).attr("action","hello").submit; --보내주기
+	</script>
+	
+	
+	Web에서 특정부분 접근할때 Java로 접근한다.DB을접근해서 다시 Web으로 감
+	Web -> Java(DB) -> Web    			
+	JS		Controller <controller는 자바스크립트와 대화 못함>
+			Service					ㄴ-- > Web <-> JS(Server제작해서 DB와 접근하자) >>이게 Node.js
+			Dao가 DB와접속
+	
+	
+	---Java를 통해서 이동
+	Java(Server) 										 Web(Client)
+		
+	response.sendRedirect("helloServlet");					HelloServlet.class로
+	response.sendRedirect("index.html?name='일지매'");		web으로 넘겨주는것은 가능한데, web에서 받아줄순없다// 가능한것은 Ajax임
+	response.sendRedirect("index.jsp");		    
+
+	response.sendRedirect("index.jsp?name='일지매'");	---- >받을때	request.getParameter("username");로 받을 수 있음   
+	
+	request소속<redirect처럼 문자열로받지않음>
+	//짐싸!
+	request.setAttribute("지정문자열",object)	---- >받을때 Object obj = request.getAttribute("지정문자열");
+ 	//foarwad 가지고 전진 >> 해당링크로 보내줘!(jsp
+ 	request.RequestDispatcher.forward("index.jsp");
+ 	request.RequestDispatcher.forward("hello"); // Servlet
+ 
+ -->
+ 
+ <!-- 이름나이입력후 전송하기 -->
+ 
+ <form id="frm" method="post">
+ <table>
+ 	<tr>
+ 		<td>이름</td>
+ 		<td><input type="text" id="_name" name="name" size="20" placeholder="이름"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>나이</td>
+ 		<td><input type="text" id="_age" name="age" size="5" placeholder="나이"></td>
+ 	</tr>
+ </table>
+ 
+ <button type="button" id="btn">전송</button>
+ 
+ </form>
+ 
+ <script type="text/javascript">
+ $(function () {
+	$("#btn").click(function () {
+		//alert("click");
+		if( $("#_name").val() == "" ){
+			alert("이름을 입력해주십시오");
+			//입력하는부분으로 커서깜빡이게보내주기focus
+			$("#_name").focus();
+		}else if( $("#_age").val() == ""){
+			alert("나이를 입력해주십시오");
+			$("#_age").focus();
+		}
+		else{ //버튼을눌렀을때 form의 데이터를 보내주기 값을 2개설정하기위해 {}
+						// "target":"_self" >>self는 defalut값 //현재창에 보내주기
+			$("#frm").attr({ "action":"hello", "target":"_self"}).submit();
+		}
+	});
+});
+ 
+ </script>
+ 
+ <!-- 
+ 	index.html --name으로 겨줌 -- > Java(HelloServlet) --Object로 넘겨줌 -- > JavaSampleServlet
+ 	
+ 	 JavaSampleServlet --Object로넘겨줌 -- > detail.jsp(html로받을 수 없음, ajax나, jsp로만받아야함)
+ 				
+  -->
+ 
+</body>
+</html>

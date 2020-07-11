@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>체육관 이용 요금</h1>
+기본 사용료(4시간)40,800원
+<br><br>
+
+<form name="frm">
+	<input type="checkbox" onclick="sum(0)" id="ch1" value="20000">야간조명(20,000원)
+	<br>
+	<input type="checkbox" onclick="sum(1)" id="ch2" value="4000">배구 네트x2장(4,000원)
+	<br>
+	<input type="checkbox" onclick="sum(2)" id="ch3" value="5000">배구공x10(20,000원)
+	<br>
+	<br>
+	합계금액:<input type="text" id="t1" value="40800">원정
+</form>
+
+
+<script type="text/javascript">
+var total = parseInt( document.getElementById("t1").value );
+/*
+function sum( num ) {
+	
+	var v = document.getElementById("ch1").value;
+	alert(v);
+	var b = document.getElementById("ch1").checked;	// true/false
+	alert(b);
+	
+	if(num == 0){
+		var ch1 = document.getElementById("ch1").checked;
+		var value = parseInt( document.getElementById("ch1").value );
+		if(ch1 == true){
+			total = total + value;
+		}else{
+			total = total - value;
+		}
+		document.getElementById("t1").value = total;
+	}else if(num == 1){
+		
+	}	
+	
+//	alert('첵크');
+}*/
+
+var arr = new Array(3);
+arr[0] = parseInt( document.getElementById("ch1").value );
+arr[1] = parseInt( document.getElementById("ch2").value );
+arr[2] = parseInt( document.getElementById("ch3").value );
+
+function sum( n ) {
+	if(document.frm.elements[n].checked == true){
+		total = total + arr[n];
+	} else{
+		total = total - arr[n];
+	}
+	
+	document.frm.elements[3].value = total;
+	
+	var v = document.getElementsByTagName("body")[0];
+	alert(v.getElementsByTagName("h1")[0].innerHTML);
+	
+	v.getElementsByTagName("h1")[0].innerHTML = "추가!";
+}
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+

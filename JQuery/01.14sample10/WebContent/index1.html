@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<ul id="list">
+		<li>커피</li>
+		<li>홍차</li>
+		<li>우유</li>
+		<li>쥬스</li>
+		<li>녹차</li>
+	</ul>
+	
+	<p id="len">리스트의 요소 수 </p>
+	선택한항목:<input type="text" id="choice">
+	<br><br>
+	
+	추가항목:<input type="text" id="col"><br>
+	<button type="button">추가</button>
+	
+	
+	<script type="text/javascript">
+	$(function () {
+		
+		//선택한항목이 나타나도록 하는부분
+		/*
+		$("ul#list").children().click(function () {
+			alert( $(this).text() );
+		});
+		*/
+		
+		//선택한것이 텍스트필드에 나타나도록함 (나중에추가한 추가항목은 나오지않음)
+		/* 
+		$("ul#list li").click(function () {
+			$("#choice").val( $(this).text() );
+		});
+		*/
+		
+		//나중에 추가한것 클릭하면 텍스트나오게 하기
+		$(document).on("click","ul#list li", function () {
+			$("#choice").val( $(this).text() );
+		});
+		
+		
+		//추가항목버튼에관한 함수
+		$("button").click(function () {
+			
+			//length로가져와서 p tag의 len부분에 갯수 올려주기
+			var len = $("ul#list").children().length
+			$("#len").text(len + "개의 요소가 있습니다.");
+			
+			//추가항목	추가하기				  //text set 
+			var appendObj = $("<li></li>").text( $("#col").val() );
+			$("ul#list").append( appendObj );
+		});
+		
+	});
+	</script>
+</body>
+</html>

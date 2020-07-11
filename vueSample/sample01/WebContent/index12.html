@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<!-- vue for loop  -->
+<div id="app">
+	<ul>
+		<span v-for='n in 100'>
+			{{ n }}
+		</span>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	//el: #app 만해주먼 {{n}} 이 for문 돌아감
+	new Vue({
+		el: "#app"
+	});
+	
+</script>
+
+<!-- {{}}에 있는 변수는 'i in 9 '에 있는 따옴표안에있 는 변수를가져와야한다 외부변수 못가져욤  -->
+<div id="app1">
+	<ul v-for='i in 9' style="display: inline-block;">
+		<li v-for=' j in 9'>
+			{{ i  }} X {{j }} = {{i*j}}
+		</li>
+	</ul>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: "#app1"
+	});
+</script>
+
+<!-- items를 통해서 item을 표현함 -->
+<ul id="app2">
+	<li v-for=" item in items">
+		{{ item.msg }}
+	</li>
+</ul>
+
+<script type="text/javascript">
+	new Vue({
+		el: "#app2",
+		data: { //items 안에 value 넣기 여러개의 데이터르 표현하려면 web에서 무조건 json 임
+			items:[
+				{ msg:'사과'}, {msg:'배'}, {msg:'바나나'}
+			]
+		}
+	});
+</script>
+</body>
+</html>

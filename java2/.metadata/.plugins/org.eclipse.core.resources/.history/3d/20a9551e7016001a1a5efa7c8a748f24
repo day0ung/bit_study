@@ -1,7 +1,0 @@
-package dao;
-
-public class DeleteClass {
-	public DeleteClass() {
-		
-	}
-}

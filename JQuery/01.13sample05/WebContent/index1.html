@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<h3>JQuery</h3>
+
+<form >
+이름:<input type="text" id="name"><br>
+나이:<input type="text" id="age"><br>
+주소:<input type="text" id="address"><br>
+<button type="button" id="btn">전송</button>
+</form>
+
+<script type="text/javascript">
+$(function () {
+	//$("#btn").click(function () {
+	//});
+	
+	$("#btn").on("click", function () {
+		alert("click");
+		//원래대로한다면
+		location.href ="NewFile1.jsp?name=" +$("#name").val()
+					    + "&age="+$("#age").val()
+					    +"&address="+$("#address").val();
+	});
+});
+
+</script>
+<br><br><br>
+<!-- id는 js에서 빈값인지체크해주는것 확인용, 왔다갔다 서버하는것은 name= 값을가지고 전달할때 쓰는것
+	class 는  css에서-->
+<form id="frm" action="NewFile1.jsp">
+이름:<input type="text" id="_name" name="name"><br>
+나이:<input type="text" id="_age" name="age"><br>
+주소:<input type="text" id="_address" name="address"><br>
+<button type="button" id="_btn">전송</button>
+
+<!-- 원래 데이터 보내줄때<input type="submit" value="전송"> -->
+</form>
+
+<script type="text/javascript">
+
+$(function () {
+	$("#_btn").click(function () {		
+		// attr == form의 action="NewFile1.jsp"와 같음
+		//위에다가 aciont을 기입을 안했으면 사용하기
+		//$("#frm").attr("action","NewFile1.jsp").submit(); 
+		$("#frm").submit();
+	});
+});
+</script>
+
+</body>
+</html>

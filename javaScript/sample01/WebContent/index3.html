@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"> p tag</p>
+
+<h3 id="demo">h3 tag</h3> <!-- 인식 못함--> 
+
+<button type ="button" onclick ="btnClick()">버튼</button>
+<br><br>
+
+<button type="button" onclick="btnClick1( 7 )"> 버튼 </button>
+<br><br>
+
+<button type="button" onclick="btnClick2()"> 버튼 </button>
+<!--  
+	id -> JavaScript
+		현 페이지에서 1개만을 인식
+	class
+	name
+-->
+<script type="text/javascript">
+//버튼을 눌렀을때 함수를 호출
+function btnClick(){
+//	alert("btnClick()");
+	document.getElementById("demo").innerHTML = "Hello,it's me";
+}
+
+//버튼을 눌렀을때 함수를 호출click1(매개변수)
+function btnClick1(num){
+	document.getElementById("demo").innerHTML = num * 5;
+}
+
+//리턴값이 있는 function return을 적어주면 return이 됨
+function func( x, y ) {
+	return x * y;
+}
+
+function btnClick2() {
+	document.getElementById("demo").innerHTML = func(5,6);
+}
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script type="text/javascript">
+var xmltext = "<bookstore>" + //root tag 안의 node 2개,
+				"<book>" + //node
+					"<title>탈무드</title>" +
+					"<author>man</author>"+
+					"<year>2001</year>" +
+				"</book>"+
+				"<book>" +  //node
+					"<title>이솝우화</title>" +
+					"<author>woman</author>"+
+					"<year>2004</year>" +
+					/*"<year>2004</year>"  하나가 더있으면안됌 위랑 형태가 같아야함*/
+				"</book>"+
+			"</bookstore>";
+
+var parser, xmlDoc;
+
+parser = new DOMParser(); //원래있는 객체
+								//xmltext를 html형식으로 잡아놓겠다 라는 것
+xmlDoc = parser.parseFromString(xmltext, "text/html");
+
+document.getElementById("demo").innerHTML
+	//= xmlDoc.getElementsByTagName("book")[0].childNodes[0].nodeName; //title
+/*    = xmlDoc.getElementByTagName("book")[0]. >> book Node안의
+ 	  .childNodes[1].nodeName 자식노드의 1번째 하면 >> author  */
+ 	 = xmlDoc.getElementsByTagName("book")[0].childNodes[0].childNodes[0].nodeValue; //탈무드
+	  	 // = xmlDoc.getElementsByTagName("book")[0]. >> <book>
+			 // 							childNodes[0].     >>  <title>
+			 // 							childNodes[0].nodeValue;   >><title>의 value탈무드
+ 	 //= xmlDoc.getElementsByTagName("book").length; //node의 길이
+ 	 //= xmlDoc.getElementsByTagName("book")[0].childNodes.length; //node의 node길이
+</script>
+</body>
+</html>

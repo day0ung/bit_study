@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+변수(variable)
+
+<p id ="demo">p tag</p>
+
+<script type="text/javascript">
+/*
+ var -- int, double, String, Object,char
+ 
+ var ==모든데이터를 취합해서 어떤변수든 사용할 수 있도록 함
+ MyClass cls = new MyClass();
+ Object obj = new MyClass();
+ 
+ ((MyClass)obj).method(); 
+ */
+ 
+ var pi = 3.141592;
+ var name = "홍길동";
+ var answer ="Yes | No";
+ var number =123;
+ var updown = true;
+ 
+ var per = "일지매", num  = 234+1;
+ 
+ num = "정수동";  //num 234+1 이 정수동으로 바뀜
+ 
+ alert("per:"+per + "num:" + num);
+ 
+var nn = "5" +3 +1;
+alert(nn); //출력결과 531 ->문자열처리됨
+
+var nn = 3 + 1 + "5";
+alert(nn); //출력결과 45 ->연산 후 문자
+
+
+//배열-----Array
+var cars = [ "Saab", "Volvo", "BMW"]; //node.js와 같음 -> Vue, react
+alert(cars[0]);
+
+var cars = new Array(3); // String cars[] = new String[3];
+cars[0] = "Benz";
+cars[1] = "BMW";
+cars[2] = "Volvo";
+alert(cars[2]);
+
+//for문
+/*
+for(i = 0; i <cars.length;i++){
+	console.log(cars[i]);
+}
+*/
+
+//for each문
+for(i in cars){
+	console.log(cars[i]);
+}
+
+
+//Object == class -> json Key:value
+var obj = {
+	firstname:"길동", 
+	lastname:"홍",
+	age:24,
+	funcName: function(){
+		alert("funcName() 호출");
+	}
+};
+
+console.log(obj.firstname + " " +obj.lastname + "  " +  obj.age); //key값으로 접근
+obj.funcName();
+
+var y = 123e2; //123 * 10 * 10
+
+y = 123e-2; //123 * 0.1 * 0.1
+alert(y);
+
+
+//typeof 변수의 타입 알아보기
+var up = true
+document.getElementById("demo").innerHTML =
+	"홍길동:" + typeof "홍길동" + "<br>" + //typeof 타입을 알아보는것
+	"325:" + typeof 325 + "<br>" +
+	"3.141592:" + typeof 3.141592 + "<br>" +
+	"true:" + typeof true + "<br>" +
+	"array:" + typeof [1,2,3] + "<br>" + //array는 object임
+	"object:" + typeof{num:1, name:"abc"};
+	
+/*
+ 출력결과
+ 홍길동:string
+ 325:number
+ 3.141592:number
+ true:boolean
+ array:object
+ object:object
+ */
+ 
+</script>
+
+
+
+</body>
+</html>

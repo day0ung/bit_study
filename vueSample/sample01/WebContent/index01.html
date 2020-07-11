@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<!-- single document -->
+<div id="app">
+	<h1>hello {{ str }} world</h1>
+	<p>hello {{ str }} world</p>
+	<h3>world {{ tag }} hello</h3>
+</div>
+
+<script type="text/javascript">
+
+var v = new Vue({		// new 로 instance 생성
+	el:'#app',			// element(요소)로 DOM 요소를 지정 
+	data:{				// data는 사용할 변수들을 설정
+		str: 'Vue 입니다',
+		tag: 'tag변수의 값입니다'
+	}
+});
+
+v.str = 'str 변경';
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<p>p tag</p>
+
+<div>
+	<p>div in p tag1</p>
+
+	<p>div in p tag2</p>
+</div>
+
+<script type="text/javascript">
+$(function() {
+	/*
+	$('p').click(function () {
+		alert('p tag click');
+	});
+	*/
+
+	/*
+	//div안의 p만 사용하고 싶을때 (div 띄어쓰기 p)
+	 $('div p').click(function () {
+		alert('div p tag click');
+	});
+	*/
+
+
+	/*
+	$('div .cls')click(function () {
+		alert('div p rag click');
+	});
+	*/
+	$('p').on("click", function() {
+		//$('p').hide(); ==모든 ptag들을 숨김
+		//$(this).hide(); //this(자기자신을 가리키는 object)==클릭한 부분의 object만 감춤
+		$(this).css("background" , "#ccc" ); //setter
+		var color = $(this).css("background"); //getter
+		alert(color);
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<readingbook>
+	<book>
+		<title>아낌없이 주는 나무</title>
+		<author>셸 실버스타인</author>
+		<price>13000</price>
+	</book>
+	<book>
+		<title>나의 라임 오렌지 나무</title>
+		<author>조제 마우루 지 바스콘셀루스</author>
+		<price>15000</price>
+	</book>
+	<book>
+		<title>뿌리깊은 나무</title>
+		<author>이정명</author>
+		<price>12000</price>
+	</book>
+	<book>
+		<title>강아지똥</title>
+		<author>권정생</author>
+		<price>11000</price>
+	</book>
+
+</readingbook>

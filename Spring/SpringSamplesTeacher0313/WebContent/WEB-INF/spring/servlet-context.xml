@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- spring MVC annotation(주석문, 지시문)을 사용하기 위한 설정 -->
+	<context:annotation-config/>
+	
+	<!-- viewResolver 설정(사용자의 view의 위치, 확장자명) -->	
+	<!-- 
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>	
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	 --> 
+	 
+	<!-- tiles --> 	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/views/layouts.xml</value>
+			</list>
+		</property>	
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="requestContextAttribute" value="requestContext"/>
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+	</bean>	
+	  
+	<!-- java 공통 패키지 -->
+	<context:component-scan base-package="bit.com.a"/>
+	
+	<!-- ajax 주석문 사용을 허가 -->
+	<mvc:annotation-driven/>
+	
+	<!-- spring에서 처리할 수 없는 요청은 tomcat에 위임 -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- fileupload 설정 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600"/> <!-- 1mb -->
+		<property name="maxInMemorySize" value="102400"/><!-- 메모리 잠깐동안의 사용용량 1kb -->
+		<property name="defaultEncoding" value="utf-8"/>
+		<property name="uploadTempDir" value="upload"/> <!-- 업로드파일이름 -->
+	</bean>
+	
+	<!-- downloadview 설정-->
+	<bean id="downloadView" class="bit.com.a.util.DownLoadView"/> <!-- 다운로드 클래스 생성 -->
+	<bean id="downloadViewResolver" class="org.springframework.web.servlet.view.BeanNameViewResolver"> <!-- 다운로드 창 만들어주는것 -->
+		<property name="order"> <!-- 다운로드창 -->
+			<value>0</value>
+		</property> 
+	</bean>
+	
+	<!-- web socket 추가-->
+	<websocket:handlers>
+		<websocket:mapping handler="myHandler" path="/echo.do"/><!-- path: websocket을 접근햇었을때 이름 /echo.do/ 컨트롤러를 작동시키는 것 접속할때 씀 -->
+		<websocket:handshake-interceptors>
+			<bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/>
+		</websocket:handshake-interceptors>
+	</websocket:handlers>
+	
+	<!-- /websocket handler = 의 myshandler/echo.do를 했을때 -->
+	<bean id="myHandler" class="bit.com.a.websock.WebSocket"/>
+</beans>
+
+
+
+
+
+
+

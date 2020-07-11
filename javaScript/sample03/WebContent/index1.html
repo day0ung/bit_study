@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+document.getElementById("demo").innerHTML = 
+		/* 
+		parseInt("10") + "<br>" +
+		parseInt("23.4")+ "<br>" + 
+		parseFloat("23.4")+ "<br>" +
+		parseFloat("23 4"); 
+		*/
+		Number( true ) + "<br>" +
+		Number(false) + "<br>" +
+		Number(new Date()) + "<br>" +
+		Number("123") + "<br>" +
+		Number("12.345");
+		
+		/* 출력결과
+		1
+		0
+		1578362886215
+		123
+		12.345 
+		*/
+
+</script>
+</body>
+</html>

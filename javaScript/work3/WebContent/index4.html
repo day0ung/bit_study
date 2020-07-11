@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>포털 사이트</h1>
+"열기"버튼을 클릭하면 해당 홈페이지를 새 창에서 볼 수 있습니다.
+<br><br>
+
+<table border="1">
+<tr>
+	<th style="background-color: #00ff00; padding: 10px">네이버</th>
+	<td id="naver">http://www.naver.com</td>
+	<td>
+		<button type="button" onclick="func('naver')">열기</button>
+	</td>
+</tr>
+<tr>
+	<th style="background-color: #00ff00; padding: 10px">구글</th>
+	<td id="google">http://www.google.com</td>
+	<td>
+		<button type="button" onclick="func('google')">열기</button>
+	</td>
+</tr>
+
+</table>
+
+<script type="text/javascript">
+function func( n ) {
+	if(n == 'naver'){
+		var url = document.getElementById("naver").innerHTML;
+		location.href = url;
+	}
+	else if(n == 'google'){
+		var url = document.getElementById("google").innerHTML;
+		window.open(url);
+	}
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

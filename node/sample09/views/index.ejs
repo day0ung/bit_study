@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-mycss.style %>
+</head>
+<body>
+    <h1>hello ejs( <%=title %> )</h1>
+
+    <% for( i = 0; i <3; i ++){ %>
+        <h3>hello node js</h3>
+    <% } %>
+</body>
+</html>
+
+<!-- 
+ejs = Embedded JavaScrip -> jsp
+자바스크립트가 내장되어있는 html 파일
+
+<% %>   javascript code   
+<%= %>  javascript value
+<%- %>  read용 
+    
+    html -> link로 데이터를 넘길 수 있다. ok
+    java(data) -> html 자바코드를 가져와서 html에 데이터를 넣을 수 없다
+                  가능한거 딱하나: ajax ok ajax = jquery 소속
+    
+-->

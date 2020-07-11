@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	자신이 읽은 책: 4권
+	 	제목(title),저자(author),가격(price)
+	 	
+	 	xml,json파일로 만들고 
+	 	xml - new- other - xml
+	 	json - new - file - .json
+	 	->시각화 -> table로 표현하기
+ -->
+<div id="books">
+</div>
+
+<script type="text/javascript">
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status ==200){
+		func( xhttp.responseText );
+	}
+};
+
+xhttp.open("GET", "books.json", true);
+xhttp.send();
+
+
+ 
+ function func( resp ) {
+	var arr = JSON.parse( resp );
+	var out = "<table border='1'>";
+	out += "<col width=100><col width=140><col width=100>"
+	out += "<tr>";
+	
+	//key값을 뽑을 수 있도록 
+	for(key in arr[0]){  //title, author, price나오게 하기
+		out += "<th>" + key +"</th>";
+		
+	}
+	out += "</tr>";
+	//데이터 뿌려주기 datas 출력
+	/* 
+		arr[0].title >>아낌없이 주는 나무가 나오는 것임
+		arr[1].author
+	*/
+	for (var i = 0; i < arr.length; i++) {
+		out += "<tr>";
+		
+		/* out += "<td>" + arr[i].title + "</td>"; 
+		out += "<td>" + arr[i].author + "</td>"; 
+		out += "<td>" + arr[i].price + "</td>";  */
+		
+		//key값이 많고 뿌려주기만 하고 싶을때 
+		for(key in arr[i]){
+			out += "<td>" + arr[i][key] + "</td>";
+		}
+
+		out += "</tr>";
+	}
+	
+	
+	
+	out += "</table>";
+	
+	document.getElementById("books").innerHTML = out;
+}
+
+ </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- xml파일 parsing하기 -->
+<p id="demo"></p>
+
+<script type="text/javascript">
+var xhttp = new XMLHttpRequest();
+
+//읽기가 끝나면 자동호출됨
+xhttp.onreadystatechange = function () {
+		//4 = 처리가 끝남, 200 = 성공했다.
+	if(this.readyState == 4 && this.status ==200){
+		//nodeValfunc(this);
+		nodeNameFunc(this);
+		//childNodeFunc(this);
+	}
+};
+
+xhttp.open("GET", "client.xml", true);
+xhttp.send(); //서버로 보내주기 >>처리가 다끝난다음에 나오는부분은  function 부분임
+//전부다 parsing이 끝나시점 = readystate  4
+
+function nodeValfunc( xml ) {
+	var num,name;
+	var txt, ntxt, xmlDoc;
+	
+	txt = ntxt = ""; //빈문자열로 초기화처리
+	
+	xmlDoc = xml.responseXML; //xml =매개변수로 들어온 xml
+	alert(xmlDoc); //[object XMLDocument] 로 alert이 뜸 오브젝트로 넘어오는 것을 알 수 잇다.
+	
+	//num 가져오기 xml document에서 tag이름이 번호였을때 
+	num = xmlDoc.getElementsByTagName("번호");
+	name = xmlDoc.getElementsByTagName("이름");
+	//alert(num.length); //출력결과3  3개의 데이터가 있음, 배열로넘어온것
+	
+	for(i =0; i< num.length; i++){
+		//txt에 넘버 모아주기
+		txt += num[i].childNodes[0].nodeValue + "<br>";
+		ntxt += name[i].childNodes[0].nodeValue+ "<br>";
+	}
+	
+	document.getElementById("demo").innerHTML =  txt + ntxt;
+}
+
+//node가 몇개 있는지 가져오는 함수
+function nodeNameFunc( xml ) {
+	var arr, xmlDoc, txt;
+	//web에다가 올려주기위한 변수 txt
+	txt = "";
+	
+	xmlDoc = xml.responseXML;
+	
+	arr = xmlDoc.documentElement.childNodes;
+	
+	for(i = 0; i< arr.length; i++){
+		if(arr[i].nodeType ==1){ //1이 아니면 nodetype이 없는것임
+			txt += arr[i].nodeName +"<br>";
+		}
+	}
+	
+	document.getElementById("demo").innerHTML =  txt;
+}
+
+function childNodeFunc( xml ) {
+	var arr, xmlDoc, txt;
+	txt ="";
+	
+	xmlDoc = xml.responseXML;
+	
+	arr = xmlDoc.getElementsByTagName("고객")[0];
+	var len = arr.childNodes.length;
+	alert(len); //9개나옴, 고객부터 읽어오면 
+	
+	//child잡아주는것, arr의 제일첫번째 child를 가져옴
+	var fchild = arr.firstChild;
+	
+	for(i= 0; i< len; i++){
+		if(fchild.nodeType ==1){
+			txt += i + " " + fchild.nodeName + "<br>";
+		}
+		fchild = fchild.nextSibling;
+	}
+	document.getElementById("demo").innerHTML =  txt;
+	
+	
+}
+</script>
+</body>
+</html>

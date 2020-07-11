@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+	<h1>hello {{ str }} world</h1>
+</div>
+
+<script type="text/javascript">
+
+	var datas = {				// (4)
+		str:'Vue 입니다'
+	}
+	
+	var vueConfigOption = {		// (2)	
+		el: '#app',
+		data: datas				// (3)
+	}
+
+	new Vue(vueConfigOption); // (1)
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+
+
+
+

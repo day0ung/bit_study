@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- 
+[DOM정리]
+
+Document Object Model
+
+dom접근
+JavaScript: innerHTML, value
+
+JQuery: html(), text(), val(), css(), attr(), prop()
+	setter -> css("background-color", "#ffffff")
+			  두개 이상 넣고 싶을때 , 로 구분
+			  css({
+			  		"background-color":"#ffffff", 
+			  	  	"border":"3px solid"
+			  	  });
+ 	getter ->var v = $("#id").css("background-color"); 키값만 넣어주면 가져옴
+ 
+ 	-------------------------------
+ 	setter -> $(id, class, name, tag).val( 값을 넣어줌 ); <-input에 해당하는 것은 거의다 이걸로가져옴
+ 			  $(id, class, name, tag ).css("특성명","값);
+ 	
+ 	getter -> $(id, class, name, tag).val();
+ 			  $(id, class, name, tag).css("특성명");
+ 	
+ 	---------------------------------
+ 	JQuery에서 id많이사용 JavaScript에서 name많이사용
+ 	form 
+ 	setter -> $(id, class, name, tag).attr("속성명", "값"); 
+ 			  $(id, class, name, tag).submit();
+ -->
+ 
+ <!-- 일반 Tag -->
+<p id="demo">주진모 폰 <b>해킹</b>, 이것만 했어도 막을 수 있었다.</p>
+<button id="btnText">show text</button>
+<button id="btnHtml">show Html</button>
+
+<script type="text/javascript">
+//p tag값 가져오기
+$(document).ready(function(){
+         $("#btnText").click(function(){
+            var text = $("#demo").text();  // text()로 가져오기
+            alert(text);
+         });
+
+         $("#btnHtml").click(function(){
+            var html = $("#demo").html();    // html()로 가져오기
+            alert(html);
+         });
+      
+});
+</script>
+
+<br><br>
+<!-- 입력(input, select) -->
+<input type="text" id="text" placeholder="입력주제">
+<button type="button" id="btnInput">show value</button>
+
+<script type="text/javascript">
+$(function () {
+	$("#btnInput").click(function () {
+		var v = $("#text").val(); //getter
+		alert(v);
+	});
+});
+
+</script>
+
+<br><br>
+<!-- attr -->
+<p>
+	<a href="http://www.naver.com" id="naver">Naver Link</a>
+</p>
+
+<button type="button" id="btnAttr">Attribute(속성)</button>
+
+
+<script type="text/javascript">
+$(function () {
+	$("#btnAttr").click(function () {
+		//getter
+		var attrVal = $("#naver").attr("href"); //attr에 얻어오고 싶은거 넣어주면됨
+		alert(attrVal);
+		
+		//setter		//attr(넣어주고 싶은곳 ,  값) 
+		$("#naver").attr("href", "http://www.daum.net");
+		$("#naver").text("다음홈페이지")
+	});
+});
+</script>
+</body>
+</html>

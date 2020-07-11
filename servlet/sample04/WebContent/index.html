@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	링크걸어주기
+	-HTML
+          링크만걸어주면 form안에있는 name작성한것이 다넘어감
+	  <a href="hello"
+	  <form submit"hello"
+	
+	-Java Script
+            링크만걸어줄때 name작성한것이 다넘어가지 않아서 만들어줘야함
+	  location.herf ="hello?name=" +name;
+	
+	-JQuery
+	  링크만걸어주면 form안에있는 name작서한것이 다넘어감
+	  $("#frm").attr("action","이동해줄부분>>hello").submit();
+	  
+	-Java
+		에서도 링크로 넘겨주는 것이 있음  
+ -->
+ 
+ <h3>상태 코드 확인</h3>
+
+<form action="hello" method="get"> <!-- method아무것도안적어주면 get으로 들어감  -->
+
+<table>
+<tr>
+	<td>상태코드</td>
+	<td>
+		<select name="code">
+			<option value="200">SC_OK</option>
+			<option value="404">SC_NOT_FOUND</option>
+			<option value="500">SC_INTERNAL_SERVER_ERROR</option>
+		</select>
+	</td>
+</tr>
+</table>
+<input type="submit" value="송신">
+</form>
+</body>
+</html>

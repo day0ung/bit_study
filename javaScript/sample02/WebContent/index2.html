@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- form name 
+	목적: JS에서 접근이 용이하게 하기 위해서 
+-->
+<form action="" name="frm">
+
+<div align="center">
+	<strong>Noodle Timer</strong><br><br>
+	<select id="selid" name="myChoice">
+		<option value="180">time select</option>
+		<option value="300">5minute</option>
+		<option value="150">3minute</option>
+		<option value="120">2minute</option>
+		<option value="60">1minute</option>
+		<option value="30">30second</option>
+	</select>
+	
+	<input type="button" value="GO!" onclick="noodle()">
+	<br><br>
+	
+	<span id="countdown"> time selected</span>
+	<br><br>
+												<!-- window.close원래있는함수 창이 꺼짐 -->
+	<input type="button" value="close" onclick="window.close()">
+	
+	</div>	
+</form>
+
+<script type="text/javascript">
+var count = 0;
+var time = 0;
+var choice = 0;
+function noodle() {
+	clearInterval(time); //타이머 초기화
+	
+	/* 
+	//select의 value값을 가져오는것
+	var val = document.getElementById("selid").value;
+	alert(val);
+	
+	
+	//select의 index값을 가져오는 것 0부터
+	var index = document.getElementById("selid").selectedIndex;
+	alert(index); 
+	*/
+	
+	choice = document.frm.myChoice.selectedIndex;
+	//alert(index);      form안에 choice안의 선택하
+	
+	//doc안에 form안의 mychoice(select)안의 option의 번호 
+	count = parseInt(document.frm.myChoice.options[choice].value);
+	//alert(count);
+	
+	time = setInterval("myTimer()",1000);
+	
+}
+
+function myTimer(){
+	count = count -1;  //timer선택 수에서 -1씩 감산
+	
+	document.getElementById("countdown").innerHTML = "완료까지 <b>"+count +"</b>초 남았습니다";
+	if(count == 0){
+		clearInterval(time);
+		alert("시간이 완료되었습니다.");
+	}
+}
+
+//defalt값 true, 마우스 우클릭 사용못하게 하는 함수
+document.oncontextmenu = function(){
+	alert("마우스의 우클릭은 사용할 수 없습니다")
+	return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<!-- 잘못 사용된 예 -->
+<div id="app">
+	<h1>Hello {{ str }} world</h1>	<!-- 올바른 예 -->
+	<h2 class="{{ str }}">Hello world</h2>	<!-- 잘못 사용 -->
+	<h3 {{ str }}>Hello world</h3>			<!-- 잘못 사용 -->
+</div>
+
+<script type="text/javascript">
+	
+	new Vue({
+		el:	'#app',
+		data:{
+			str: 'Vue 입니다'
+		}		
+	});  
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+

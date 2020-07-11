@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<!--
+ Link
+
+html
+<a href=""        단순링크, 짐(data)이없고 이동
+<form action=""   짐(data)을 갖고 이동
+
+JavaScript
+location.href     검사를 하고난 후에 짐을갖고 이동 or 그냥이동
+
+ -->
+
+
+ <form action="NewFile.jsp"> <!-- placeholder: 초기값은아니지만, 출력되게 나옴 -->
+ 	ID:<input type="text" name="_id" id="id" placeholder="id 입력"><br>
+
+ 	<!-- <input type="submit" value="버튼 제목">  html방식-->
+ 	<!-- <button type="button" onclick="btnClick()">버튼제목</button>  JS방식-->
+ 	<!-- <button type="button" id="btn">버튼제목</button>   JQuety방식 (js처럼 핸들러함수가 없고 id로 접근-->
+ 	<button type="button" id="btn">버튼제목</button>
+ </form>
+
+ <script type="text/javascript">
+ //JavaScript 방식
+ function btnClick() {
+	var id = document.getElementById("id").value; //DOM
+	if(id == ''){ //id가 빈문자일때 return해라
+		return;
+	}
+  location.href ="NewFile.jsp?id="+id;
+
+}
+
+
+//JQuery방식
+ $("#btn").click(function () {
+	//alert("button click"); //이름을 던져줄때 id로 넘겨 줫기 때문에 jsp에서도 id로 받아야함
+	location.href = "NewFile.jsp?id=" + $("#id").val(); //setter일땐 val( 값 넣어주면됨)
+ });
+
+
+ </script>
+
+</body>
+</html>

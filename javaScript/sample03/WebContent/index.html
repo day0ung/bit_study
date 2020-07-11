@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- String, Number -->
+<p id="demo"></p>
+<p id="p1">문장하나만 긁어오세요 하나</p>
+
+<script type="text/javascript">
+var str = document.getElementById("p1").innerHTML;
+
+//str = str.indexOf("하나");
+//str = str.lastIndexOf("하나");
+//str = str.search("하나");
+//str = str.substring(0, 4);
+//str = str.charAt(0);
+
+str = "aa,bb,cc,dd";
+var arr = str.split(",");
+str =arr[1];
+
+document.getElementById("demo").innerHTML = str;
+</script>
+</body>
+</html>

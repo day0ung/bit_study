@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<p id="ptag">p tag id ptag</p>
+
+<h3 class="h3tag"> h3 tag class h3tag</h3>
+
+<input type="text" id="text" value=""><br>
+
+<button type="button">button</button>
+
+<script type="text/javascript">
+//접근: 버튼이 눌렸을때
+$(document).ready(function() {
+	
+	$("button").click(function name() {		
+		//---id의 getter/setter---
+		//setter
+		$("#ptag").html("<b>새로운 p tag문자열</b>");
+		
+		//getter
+		var v = $("#ptag").text();
+		//alert(v);
+		
+		//---class부분의 getter/setter--
+		//setter
+		$(".h3tag").text("새로운 h3 문자열");
+		//getter
+		var va = $(".h3tag").html();
+		alert(va);
+		
+		//---input부분의 getter/setter---
+		//setter는 별로필요없음
+		//$("#text").val("여기에 기입"); //버튼을 누르면 "여기에 기입"이 텍스트필드에 추가됨
+		//getter가 더 많이 쓰임
+		var va = $("#text").val();
+		alert(va); //text에 기입한것이 alert메시지로 출력됨
+		
+	});
+});
+
+</script>
+</body>
+</html>

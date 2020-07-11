@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+	<button v-on:click="greet">Greet</button>
+	<p v-on:click="greet">Ptag</p>
+</div>
+
+<!-- 클릭을 했을때 이벤트가 발생된 테그 이름 얻어오기 -->
+
+<script type="text/javascript">
+	new Vue({
+		el: "#app", 
+		methods:{
+			greet:function (evnet){
+				alert("실행");
+				alert(event.target.tagName);
+			}
+			
+		}
+	});
+	
+</script>
+</body>
+</html>

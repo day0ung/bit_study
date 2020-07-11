@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<!-- (핸들러 각종 처리들)mouseover, mouseout -->
+<!--  JavaScript에서 사용할때
+<h3 class="cls" onmouseover="mouseOver()" 
+				onmouseout="mouseOut()">h3 tag</h3>
+-->
+<!-- JQuery에서 사용시 -->
+<h3 class="cls" style="background-color: #00ff00;">h3 tag</h3>
+
+<script type="text/javascript">
+
+//Java script 사용
+ function mouseOver() {
+	//alert("범위에 들어 왔습니다");
+}
+
+
+//JQuery 사용
+$(document).ready(function () {
+	$(".cls").mouseover(function () {
+		//alert("범위에 들어왔습니다");	
+		//마우스범위에들어왔을 때 color변경하기 
+		//$(".cls").css("background","#ccc");
+			//여러개가 있을땐 this사용
+		$(this).css("background","#ccc");
+	});
+	
+	$(".cls").mouseout(function () {
+		$(this).css("background","#00ff00");
+	});		
+});
+
+</script>
+</body>
+</html>

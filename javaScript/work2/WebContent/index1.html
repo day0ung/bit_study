@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>미술관 및 박물관 링크</h1>
+<form name="frm">
+	<select name ="links" id = "_links" onchange="golink()">
+		<option>대상을 선택</option>
+		<option>미술관-----</option>
+		<option value="http://sema.seoul.go.">서울 시립 미술관</option>
+		<option value="http://www.mmca.go.kr">국립 현대 미술관</option>
+		<option value="http://www.sac.or.kr">예술의 전당</option>
+		<option>박물관-----</option>
+		<option value="http://www.museum.go.kr">국립 중앙 박물관</option>
+		<option value="http://www.museum.seoul.kr">서울 역사 박물관</option>
+		<option value="http://www.nfm.go.kr">국립 민속 박물관</option>
+	</select>	 
+</form>
+<script type="text/javascript">
+function golink() {
+	/* 
+	var selectIndex = document.getElementById("_links").selectedIndex;
+	alert(selectIndex); //index number를 가져옴 
+	*/
+	var selectIndex = document.frm.links.selectedIndex;
+	//alert(selectIndex);
+	
+	//Uniform Resource Locator(한결같은 자원 탐지)
+	//var url = document.getElementById("_links").options[selectIndex].value;
+								//select 안의 option[선택된것] 안의 값value를 가져온다
+	//alert(url);
+								
+	//2번째 방법
+	var url = document.frm.links.options[selectIndex].value;
+	//alert(url);
+	
+	//링크타고 넘어갈 수 있도록 함
+	if(selectIndex != 0 && selectIndex != 1 && selectIndex !=5){
+		location.href = url;
+	}
+}
+
+</script>
+</body>
+</html>

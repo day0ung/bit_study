@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- 원래쓰는 링크먼저 -->
+</head>
+<body>
+<!-- 동적테이블 
+	추가를하면 늘어남(table row,
+-->
+<h1>동적테이블</h1>
+<table border="1" id="list_table">
+<colgroup>
+<!-- column의 폭을정함 -->
+	<col style="width: 70px">
+	<col style="width: 200px">
+	<col style="width: 300px">
+	<col style="width: 200px">
+</colgroup>
+
+<thead>
+	<tr>
+		<th>번호</th>
+		<th>이름</th>
+		<th>생년월일</th>
+		<th>Action</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>1</th>
+		<td>Hong</td>
+		<td>2001/03/12</td>
+		<td>
+			<a href="#" class="delete-link">삭제</a>
+		</td>
+	</tr>
+	
+</tbody>
+</table>
+
+<!-- 입력테이블  -->
+<br><br>
+
+<h3>추가 입력</h3>
+<table id="append_table">
+<colgroup>
+	<col style="width: 70px">
+	<col style="width: 200px">
+	<col style="width: 300px">
+	<col style="width: 200px">
+</colgroup>
+<thead>
+	<tr>
+		<th>번호</th>
+		<th>이름</th>
+		<th>생년월일</th>
+		<th>Action</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td><input type="text" id="add_no"></td>
+		<td><input type="text" id="add_name"></td>
+		<td><input type="text" id="add_birth"></td>
+		<td><button type="button" id="append_row">데이터 추가</button></td>
+	</tr>
+</tbody>
+</table>
+
+
+<script type="text/javascript">
+$(function () {
+	//appendrow 버튼을 클릭했을때
+	$("#append_row").click(function () {
+		//table에 추가하는 부분의 코드가 들어가야햠
+		
+		//append에 맨처음추가해야될것 : 번호임  번호는 th태그임
+		$("#list_table").append(
+			//table body에 있는 row하나짜리 tr->th-td-td가 있다 이런식으로 추가해야함
+			$("<tr></tr>").append(
+				$("<th></th>").append( $("#add_no").val() ),
+				$("<td></td>").append( $("#add_name").val() ),
+				$("<td></td>").append( $("#add_birth").val() ),
+				//<td> <a href="#" class="delete-link">삭제</a> <td>추가하기
+				$("<td></td>").append(
+					$("<a></a>").attr("href","#").addClass("delete-link").append("삭제")
+				)
+			)
+		);
+		
+	});
+	
+
+	/* 	
+ 	//기존에 있는 데이터는 삭제가 가능하지만
+	//아래코드를 사용하면 데이터추가한부분은 삭제가되지않는다
+	$(".delete-link").click(function () {
+		//a tag td만 지워진것임 >>td위에있는 tr을 지우기 위해서는 parent를 두번해야된다
+		//$(this)parent().remove();
+		$(this).parent().parent().remove();
+	}); 
+	*/
+		//document를 읽어온후에 삭제를 하면 추가한부분도 삭제가 가능하다!
+		$(document).on("click",".delete-link", function () {
+		$(this).parent().parent().remove(); //tr을지우면 자식태그 까지 지워짐
+	
+	}); 
+});
+
+
+</script>
+</body>
+</html>

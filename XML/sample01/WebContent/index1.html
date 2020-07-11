@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" onclick="loadXMLDoc()">내용변경</button>
+
+<p id="demo">p tag</p>
+
+<script type="text/javascript">
+var xhttp = new XMLHttpRequest(); //http통신을하기위한 요청 객체 서버와 왔다갔다하는것
+
+function loadXMLDoc() {
+			//on ready state change >>xhttp소속
+	xhttp.onreadystatechange = function() {
+		//console.log( this.responseText ); //this ==xhttp소속 파일에서 읽어들인부분을 설정하는 것
+		//console.log( this.readyState );  //맨처음들어왔을때 상태는 0 이였음
+		console.log( this.status );
+		if(this.readyState == 4 && this.status ==200){
+
+			document.getElementById("demo").innerHTML = this.responseText;
+		}
+	}
+	xhttp.open("GET", "test.txt", true); //file에서 읽어드린부분을  얻어와
+	//xhttp.open("GET", "test1.txt", true); 실행하면  console.log status에서 404 에러가나타난다
+	console.log( "xhttp.open" );
+	xhttp.send(); //send로 보냄//  받아주는것은 if문안에있는 responseText에서 받아서 p tag에 뿌려라
+	console.log( "xhttp.send" );
+
+}
+/*
+  readystate
+  0 -> open() 메소드를 수행하기 전에
+  1 -> loading  중...
+  2 -> loading완료
+  3 -> Server 처리중...
+  4 -> Server 처리 완료
+
+ status
+ 200 -> Sucess 성공
+ 403 -> 접근 금지
+ 404 -> 페이지없음. 못찾겠다
+ 500 -> 문법에러(구문에러)
+ */
+
+</script>
+</body>
+</html>

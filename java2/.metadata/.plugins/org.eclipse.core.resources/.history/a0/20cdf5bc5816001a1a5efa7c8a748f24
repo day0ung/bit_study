@@ -1,5 +1,0 @@
-package dto;
-
-public class Pitcher extends Human {
-
-}

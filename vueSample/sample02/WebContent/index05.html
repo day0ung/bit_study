@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<div id="app">
+	<select v-model="sel">
+		<!-- options가 ㅂ열이나 리스트로 넘어옴, op안에 value라는게 있겟지 -->
+		<option v-for="op in options" v-bind:value="op.value">{{op.text}}</option>
+	</select>
+	<span> 선택:{{sel}}</span>
+	<!-- 버튼을 클릭하면 alert에 sell의 값이 나오도록 -->
+	<button></button>
+</div>
+
+<!-- 선택된것의 value값을 취득하기  -->
+<script type="text/javascript">
+	new Vue({
+		el: "#app",
+		data:{
+			sel: 'A',
+			options:[
+				{ text:'One', value:'A' },
+				{ text:'Two', value:'B' },
+				{ text:'Three', value:'C' }
+			]
+			
+		}
+	});
+</script>
+</body>
+</html>

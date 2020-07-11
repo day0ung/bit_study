@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app"> 
+	<h1>{{ value }}</h1>
+	<input type="text" id="input" :value='value' @keypress='setValue()'>
+	<button @click='setDefault()'>기본값</button>
+</div>
+
+<!-- keypress 키보드눌럿을때, h1 {{value}} 안에 값이 들어감-->
+<script type="text/javascript">
+	//var app하면 욕먹음, this를 사용해라...
+	var app = new Vue({
+		el:"#app",
+		data:{
+			value:	'기본값'
+		},
+		methods: {
+			setValue : function(){
+				app.value = document.getElementById("input").value;
+			}, //초기화를해주는 메소드
+			setDefault : function(){
+				this.value= "기본값";
+			}
+		}
+		
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- JQuery UI - Widgets - DataPicker - view source //Jquery css--> 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> <!-- 원래쓰는 링크먼저 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script><!-- JQueryUi링크  -->
+
+</head>
+<body>
+<h1>JQuery-UI 달력</h1>
+<h2>date Picker</h2>
+<p>선택일:<input type="text" id="date"></p>
+<p>text 박스를 클릭하면, 달력이 표시됩니다.</p>
+
+연도:<input type="text" id="year"><br>
+월:<input type="text" id="month"><br>
+일:<input type="text" id="day"><br>
+요일:<input type="text" id="week"><br>
+
+<script type="text/javascript">
+$(function () {
+	var week = ['일', '월', '화', '수', '목', '금', '토'];
+	
+	//datapicker부분이 맨처음 선택일 textf에 나타나게하기
+	$("#date").datepicker({
+		//dataFormat누군가 만들어놓은것
+		dateFormat:"yy/mm/dd",
+		dayNamesMin: week,
+		monthNames:['1월', '2월', '3월', 
+					'4월', '5월', '6월', 
+					'7월', '8월', '9월', 
+					'10월', '11월', '12월'],
+		onSelect:function( d ){
+			//alert( d );
+			//연도, 월,일 텍스트 필드에 날짜 올라가게 하기
+			var arr = d.split('/');
+			
+			$("#year").val( arr[0].trim() );
+			$("#month").val( arr[1].trim() );
+			$("#day").val( arr[2].trim() );
+			
+			//요일구하기>>요일에대한 번호구함			//#date안의 datepicker 안의  yymmdd의 벨유를 가져옴
+			var weekday = new Date( $("#date").datepicker({ dateFormat:"yy/mm/dd" }).val() );
+			//alert(weekday.getDay()); //요일번호 
+			
+			//요일텍스트필드에 val을 집어넣옴
+			$("#week").val( week[weekday.getDay()] );
+		}
+	});
+});
+
+</script>
+</body>
+</html>

@@ -1,8 +1,0 @@
-package baseballMember;
-
-import java.awt.Panel;
-
-public class Panel extends Panel {
-	
-	
-}

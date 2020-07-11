@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<style type="text/css">
+.q5{
+	color:#aabbcc;
+	border: 2px solid;
+}
+.q8{
+	padding: 10px;
+	border: #000 2px solid;
+	background-color: #ccc;
+}
+</style>
+</head>
+<body>
+<!-- 총정리 -->
+
+<button type="button"> 실행</button>
+<p id="q01">Hello JQuery</p>
+
+<p id="q02">Hello JQuery</p>
+
+<p id="q03">Hello JQuery</p>
+
+<p id="q04">Hello JQuery</p>
+
+
+<ul id="q05">
+	<li>사과</li>
+	<li>배</li>
+	<li>바나나</li>
+
+</ul>
+
+<p id="q06">최선을다함으로</p>
+
+<ul id="q07">
+	<li>커피</li>
+</ul>
+
+<P id="q08">나는 최선을 다할 것입니다</P>
+
+<div class="q8">
+	<p id="q09">나는 최선을 다할 것입니다.</p>
+</div>
+
+<p id="q10" class="q10">나는 문제 없어</p>
+
+<p id="q11">
+	<a href="http://www.naver.com" >Naver</a>
+</p>
+
+<script type="text/javascript">
+$("button").click(function () {
+	//font color변경
+	$("#q01").css("color","#ff0000");
+
+	//font color와 background-color변경
+	$("#q02").css({
+				"color":"#00f",
+				"background-color":""
+	});
+
+	//setter
+	$("#q03").text("헬로우 제이쿼리");
+	$("#q03").html("<b>헬로우</b> 제이쿼리");
+	//html로 코드를 바꿔버리기 (.text 하면 문자열로나옴)
+	$("#q04").html("<a href='http://www.naver.com'>Naver 홈페이지</a>")
+
+	//ul id에 css클래스로 만든 style css에 대한 클래스 추가하기
+	$("#q05").addClass("q5");
+
+	//ul에 list추가하기
+	var app = $("<li>").text("복숭아");
+	$("#q05").append(app);
+
+	//list항목삭제 <object(ul)는 살아있음 , li사과이런게 사라진것임
+	//$("#q05 li").remove();
+
+	//p tag앞 뒤에 요소 추가
+	$("#q06").prepend("<p>끝까지</p>");
+	$("#q06").append("<p>나는 성공할 것이다</p>");
+
+	//list에 추가 before after할때 children에다해도됨
+	/*
+	$("#q07 li").before("<li>홍차</li>"); //커피보다 홍차가 위에있음
+	$("#q07 li").after("<li>우유</li>"); //after리스트 다음에 추가하는 것임 홍차다음 우유, 커피다음 우유
+	*/
+
+    $("#q07").children().before("<li>홍차</li>");
+    $("#q07").children().after("<li>우유</li>");
+
+
+	//q08의 p테그에 밖에다가 씌움 style css class추가
+	$("#q08").wrap("<div class='q8'></div>");
+	
+	//버튼을누르면 div class의 wrap 제거
+	$("#q09").unwrap("div.q8")
+
+	//class명 변경
+	$("#q10").attr("class", "q11");
+
+	alert( $("#q10").attr("class") ); //q11이 alert창에 뜸
+
+	//href제거
+	$("#q11 a").removeAttr("href");
+
+});
+
+</script>
+</body>
+</html>

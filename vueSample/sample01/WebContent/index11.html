@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<h1>{{ single }}</h1>
+	<input type="checkbox" v-model='single' value="단일">single<br>
+	
+	<h1>{{ myradio}}</h1> <!-- v-model=' 변수명 ' -->
+	<input type="radio" v-model='myradio' value="one">1
+	<input type="radio" v-model='myradio' value="two">2
+	<input type="radio" v-model='myradio' value="three">3
+	
+</div>
+
+<script type="text/javascript">
+
+	new Vue({
+		el:"#app",
+		data:{
+			single:true, 	//체크를함에 따라 값이 달라짐 true/false
+			myradio: 'one' 
+		}
+	})
+</script>
+</body>
+</html>

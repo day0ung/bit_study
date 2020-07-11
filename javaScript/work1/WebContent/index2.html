@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h3>변수의 연산</h3>
+a, b에 대해서<br>
+변수 a와 b의 계산 결과를 표시합니다
+<br><br>
+<button type="button" onclick="plus()">덧셈</button>
+<button type="button" onclick="minus()">뺄셈</button>
+<button type="button" onclick="multi()">곱셈</button>
+<button type="button" onclick="div()">나눗셈</button>
+<button type="button" onclick="rest()">나머지</button>
+<br><br>
+<input type="text" id="a" size="10">
+<input type="text" id="oper" size="5">
+<input type="text" id="b" size="10">
+=<input type="text" id="result">
+
+<script type="text/javascript">
+var a, b;
+
+function inputValue() {
+	a = parseInt(document.getElementById("a").value);
+	b = parseInt(document.getElementById("b").value);
+}
+
+function plus() {
+	inputValue();
+	document.getElementById("oper").value = "+";
+	document.getElementById("result").value = a + b;
+}
+
+function minus() {
+	inputValue();
+	document.getElementById("oper").value = "-";
+	document.getElementById("result").value = a - b;
+}
+
+function div() {
+	inputValue();
+	if(b != 0){	
+		document.getElementById("oper").value = "/";
+		document.getElementById("result").value = a / b;
+	}else{
+		alert('계산할 수 없습니다');
+	}
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+

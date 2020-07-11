@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+	<form v-on:submit="">
+<table  border="1" >
+	<tr>
+		<td>아이디</td>
+		<td>
+			<input type="text" size="20">			
+		</td>
+	</tr>
+	<tr>
+		<td>패스워드</td>
+		<td>
+			<input type="text" size="20">			
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<!-- <a @click="login()">로그인</a> -->
+	
+			<a v-bind:href="link">회원가입</a>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			link:"account.html"
+		}
+	});
+</script>
+</body>
+</html>

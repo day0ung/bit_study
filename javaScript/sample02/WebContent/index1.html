@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--id, class, name
+id -> 1개만 인식
+class,name ->여러개 
+
+
+-->
+
+<p id="pid"> p id pid</p>  <!-- input -->
+<br><br>
+
+<p class="pclass"> p class pclass</p>
+<br><br>
+
+<h3 class="pclass"> h3 class pclass</h3>
+<br><br>
+
+<p name="pname">p name pname</p>  <!-- input -->
+<br><br>
+
+<button type="button" onclick="func()">button</button>
+<br>
+<input type="text" id="_str" name="str">
+
+<script type="text/javascript">
+function func() {
+	//alert("func()");
+	//id
+	//var text = document.getElementById("pid").innerHTML;
+	//document.getElementById("_str").value = text;
+	
+	//class
+	//var text = document.getElementsByClassName("pclass")[0].innerHTML;
+	//alert(text);
+	
+	//name
+	var text = document.getElementsByName("pname")[0].innerHTML; //input접근시 value
+	document.getElementsByName("str")[0].value = text;
+}
+
+</script>
+
+</body>
+</html>

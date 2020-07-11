@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <div>
+        <h3>배경색의 변경</h3>
+        <p>※다음 버튼을 클릭하면 홈페이지의 배경색을 변경할 수 있습니다 </p>
+     
+       <button onclick="document.bgColor='red'">빨강 </button>
+       <button onclick="document.bgColor='#78ff00'">초록</button>
+       <button onclick="colorSet(1)">파랑</button>
+       <button onclick="colorSet(2)">노랑</button>
+      
+        
+       <script>
+       function colorSet( c ) {
+           if (c ==1) {
+               document.bgColor = "#0044ff";
+           }else if(c ==2){
+               document.bgColor = "yellow";
+           }
+       }
+
+       </script>
+    </div>
+    <div>
+    <h3>문제</h3>
+    	영어속담으로 "1일 1개씩 먹으면 의사는 필요없다"라고 하는 과일은 무엇일까요?
+    	<br><br>
+    	<!-- 
+    	<form name="frm"> 
+    		<input type="checkbox" id="eng">영어를 선택 <br><br>
+    		답:<input type="text" id="answer" size ="20">
+			<button onclick="check()">답을 클릭 </button> 함수명으로 click은 사용 X
+		</form> 
+		-->
+		<script type="text/javascript">
+		function check() {
+		//	alert(document.getElementById("eng").checked);
+		/*
+		---form을 사용하지 않았을때 ---
+		var eng = document.getElementById("eng").checked;
+		var answer = document.getElementById("answer").value;
+		
+		if(eng ==true){ //영어로 답을썻다는것
+			if(answer == 'apple' || answer = 'Apple'|| answer =='APPLE'){
+				alert("정답입니다");
+			}else{
+				alert("오답입니다");
+			}
+		}else{ //한글로 썼다는 것
+			if(answer =="사과"|| answer =='능금'){
+				alert("정답입니다");
+			}else{
+				alert("오답입니다");
+			}
+		}
+		
+		
+		*/
+		
+		/*
+		//document에 들어가있는 frm안에 eng로 접근
+		// document.getElementById("eng").checked == document.frm.eng.checked 동일한코드
+		var eng = document.frm.eng.checked;
+		//alert(eng);
+		var answer = document.frm.answer.value;
+		alert(answer);
+		*/
+		}
+		</script>
+		<br>
+		<p>-----다른방법------</p>
+		<form>
+			<input type="checkbox">영어를 선택합니다<br><br>
+			답:<input type="text"size="20">
+			<button type="button" onclick="check2()">정답</button> <!-- 함수명으로 click은 사용금지 -->
+		</form>
+		
+		<script type="text/javascript">
+		function check2() {	
+			var eng = document.forms[0].elements[0].checked;
+		//	alert(eng);
+			var answer = document.forms[0].elements[1].value;
+		//	alert(answer);
+			
+			if(eng == true){
+				if(answer == "apple"||answer == 'Apple'||answer == 'APPLE'){
+					alert("정답입니다");
+				}else{
+					alert("오답입니다");
+				}
+			}else{
+				if(answer == "사과"||answer == '능금'){
+					alert("정답입니다");
+				}else{
+					alert("오답입니다");
+				}
+			}
+		}
+		
+		</script>
+    </div>
+   
+</body>
+</html>

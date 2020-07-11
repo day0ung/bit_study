@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>다음 생일까지 남은 일수</h1>
+다음버튼 클릭하여 생일을 입력하면, <br>
+다음생일까지 남은 일수를 볼 수 있습니다.<br>
+<button id ="btn" onclick="func()"> 생일을 입력</button> 
+<br><br>
+
+
+남은일수: <h3 id="days"></h3>
+
+<script type="text/javascript">
+function func() {
+	//prompt
+	var birthMonth = prompt("생일 월을 작성해 주십시오(1~12)");
+	var birthDay = prompt("생일 날짜를 작성해 주십시오(1~31)");
+	
+	//현재 날짜와 비교
+	//현재 날짜를 구한다
+	var nowday = new Date();
+	var birth = new Date(); //setter해주기 위해서
+	
+	//자신의 생일을 Set
+	birth.setMonth(birthMonth -1);
+	birth.setDate(birthDay);
+	
+	//얻어오는 부분(현재시간과 비교)
+	//mSecond가 -값이 나오는 경우 -> 지났을 경우가 된다. 현재시간이 더커야함
+	var mSecond = birth.getTime() - nowday.getTime();
+	if(mSecond <= 0){ //생일이 지난경우
+		var birthYear = birth.getFullYear();
+		birth.setFullYear(birthYear +1); //1년 후로 만들어줌
+		
+		mSecond = birth.getTime() - nowday.getTime();
+	}	
+	
+	var days = mSecond / (24 * 60 * 60 *1000); //시간 *분*초 *millisecond
+	
+	//alert(days);
+	document.getElementById("days").innerHTML =days; 
+}
+
+</script>
+</body>
+</html>

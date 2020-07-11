@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+이름:<input type="text"> <br><br>
+
+이메일:<input type="text"><br><br>
+
+<p>여기가 p tag1 입니다</p>
+<p>여기가 p tag2 입니다</p>
+<br>
+
+<!-- 
+focus: 해당부분의 포커스가 들어갔을때 배경색 변경
+ -->
+<script type="text/javascript">
+$(document).ready(function () {
+	$("input").focus(function () {
+		$(this).css("background-color","#ffff00");
+	});
+	//해당부분을 벗어났을때 배경색흰색으로 변경
+	$("input").blur(function () {
+		$(this).css("background-color","#fff");
+	})
+	
+	//p tag위에 마우스가 올려졌을때 배경색 변경
+	$("p").mouseover(function () {
+		$(this).css("background-color","#ff0000");
+	});
+	//p tag의 마우스가 out됬을때 배경색 변경
+	$("p").mouseout(function () {
+		$(this).css("background-color","#ffffff");
+	});
+	
+	//double클릭시 ptag의 값얻어와 메세지로 뿌리기
+	$("p").dblclick(function () {
+		
+		alert($(this).text());
+	});
+
+});
+
+</script>
+
+</body>
+</html>

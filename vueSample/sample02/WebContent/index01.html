@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/vue"></script> <!-- 얘가 통합적으로 쓰는애임 -->
+<!-- 주의해야할점  router를 통해서 넘어감 --> 
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<th>제목</th>
+			<th>작성자</th>
+		</tr>
+		<tr v-for=" item in items"> 
+			<td>{{item.num}}</td>
+			<td>
+			<!-- a를걸면 넘어갔을때 1번째인지2번째인지 알아야함  -->
+				<a @click="func(item.num, item.writer)">{{item.title}}</a>
+			</td>
+			<td>{{item.writer}}</td>
+		</tr>
+	</table>
+</div>
+
+<script type="text/javascript">
+ 	//datas는 나중에 DB에서 받아와야함
+ 	var datas =[
+ 		{num:1, title:"첫번째 제목", writer:'idabc'},
+ 		{num:2, title:"2번째 제목", writer:'idsdf'},
+ 		{num:3, title:"3번째 제목", writer:'id234'}
+ 	];
+ 	
+ 	new Vue({
+ 		el:"#app",
+ 		data: {
+ 			items: datas
+ 		},
+ 		/* methods:{
+ 			alert("n="+n);
+ 			func: function (n,w){
+ 				
+ 			window.location.href ="index2.html?num="+ n+ "&writer="+w;
+ 			}
+ 		} */
+ 	});
+ 	
+ 	//외부함수를 사용하기 위함 sciprt link를 통합적으로 쓰는 링크로 변경함 
+ 	function func(n, w){
+ 		alert("n="+n);
+ 		window.location.href ="index02.html?num="+ n+ "&writer="+w;
+ 	} 
+</script>
+</body>
+</html>

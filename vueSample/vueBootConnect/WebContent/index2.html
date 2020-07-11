@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<!-- axios js >> vue의 ajax -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+
+</div>
+<script type="text/javascript">
+	new Vue({
+		el:"#app"
+	})
+	
+	//post의 경우
+	var params = new URLSearchParams();
+	params.append('title', 'vue로부터 post title전송');
+	params.append('content', 'vue로부터 post content전송');
+	
+	axios.post('http://localhost:3000/conn_post_param',params) 
+		.then (res =>{
+			alert("통신성공"); //alert창이 뜨지 않는이유: 보안문제로  springboot에서 WebConfig를 해주어야한다
+			alert(res.data) //contorller의 return값 conn success 받기 data하나 받을때는 data해도됨
+			
+		})
+</script>
+</body>
+</html>

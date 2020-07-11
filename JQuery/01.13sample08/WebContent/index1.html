@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<button type="button">Tag append</button>
+
+<script type="text/javascript">
+$(function () {
+	$("button").click(function () {
+		//추가하는 방식 3가지
+
+		//1.html(text) 추가
+		var txt1 = "<p>html p tag append</p>"
+		$("body").append(txt1); //body에 추가
+
+		//2.Java Script 추가
+		var txt2 = document.createElement("p");
+		txt2.innerHTML = "JavaScript P tag append";
+		$("body").append(txt2);
+
+		//3. JQuery 추가
+		var txt3 = $("<p></p>").text("JQuery p tag append");
+		$("body").append(txt3);
+	});
+
+});
+
+</script>
+
+
+</body>
+</html>

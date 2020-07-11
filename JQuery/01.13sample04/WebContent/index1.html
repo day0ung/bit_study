@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<div align="center">
+	<div class="test" style="background-color: green; width: 50%; height: 100px; text-align: center;">
+	I can do it
+	</div>
+</div>
+
+<button type="button" id="hideBtn">감추기</button>
+<button type="button" id="showBtn">보여주기</button>
+<button type="button" id="toggleBtn">스위치</button>
+
+<script type="text/javascript">
+$(function () {
+	//버튼에 접근하기 div 클래스로 접근.
+	$("#hideBtn").click(function () {
+		$(".test").hide(2000); //hide(2000) -->2초 동안에 실행해라
+	});
+	
+	$("#showBtn").click(function () {
+		$(".test").show(3000);
+	});
+	
+	$("#toggleBtn").click(function () {
+		$(".test").toggle(); //버튼을 한번누르면 hide, 한번더누르면 show
+	});
+	
+	//div에 마우스가 영역으로 들어갔을때, 나왔을때 (mouseover,out과 같음)
+	/* 
+	$(".text").mouseenter(function () {
+		$(this).css("background-color","#0000ff");
+	});
+	
+	$(".text").mouseleave(function () {
+		$(this).css("background-color","00ff00");
+	}); 
+	*/
+	
+	//div에 마우스가 영역으로 들어갔을때, 나왔을때  한꺼번에 쓰기
+	$(".test").hover(function () {
+		$(this).css("background-color","#ff0000");
+	},function(){
+		$(this).css("background-color","#00ff00");
+	});
+});
+
+</script>
+
+</body>
+</html>

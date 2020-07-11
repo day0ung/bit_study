@@ -1,7 +1,0 @@
-package awtSample01;
-
-import javax.swing.JFrame;
-
-public class WindowTestJ extends JFrame {
-
-}

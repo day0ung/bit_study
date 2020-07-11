@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- createElement -->
+<p>필리핀 수도 마닐라 인근 탈(Taal) 화산이 폭발했다.</p>
+<p>필리핀 인기 관광지인'세부'의 위험 여부에 예비 여행객들의 관심이 모였다.</p>
+
+<ol>
+	<li>사과</li>
+	<li>배 </li>
+	<li>바나나</li>
+</ol>
+<br>
+
+<select id="food">
+	<option value="햄버거">햄버거</option>
+	<option value="피자">피자</option>
+	<option value="치킨">치킨</option>
+</select>
+
+<br><br>
+<button type="button" id="btn1"> 추가text(뒤) </button>
+<button type="button" id="btn2"> 추가text(앞) </button>
+
+<script type="text/javascript">
+$(function () {
+	$("#btn1").click(function () {
+		//p tag에 추가 (문자열)
+		//$("p").append("<br>append추가요소 뒤(element)입니다");
+		
+		//ol에  list에 추가
+		//$("ol").append("<li>포도</li>");
+		
+		//selec에 option추가
+		$("select").append("<option value='스파게티'>스파게티</option>")
+	});
+	
+	$("#btn2").click(function () {
+		//ptag 추가
+		//$("p").prepend("<br>prepend 추가요소 앞(element)");
+		
+		//ol에 list추가
+		//$("ol").prepend("<li>오렌지</li>");
+		
+		//selec에 option추가
+		$("select").prepend("<option value='엽떡'>엽떡</option>")
+	});
+});
+
+</script>
+</body>
+</html>

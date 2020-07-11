@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor="#33ff00">
+<h2>여기는 인덱스2.에이치티엠엘 입니다</h2>
+<input type="button" value="이전으로 돌아가기"
+	onclick="history.back()">
+
+<input type="button" value="현재 페이지를 갱신"
+	onclick="location.reload()">
+	
+<input type="button" value="진행"
+	onclick="history.forward()">
+	
+<button type="button" onclick="gopage()">index3.html로 이동</button> 
+
+<script type="text/javascript">
+function gopage() { //조사를 해준후에 보내줌
+	location.href = "index3.html";
+}
+
+</script>
+</body>
+</html>

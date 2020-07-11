@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <div id="news">로딩중...</div>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+    /*
+      $(window).resize(function(){
+        alert("window 크기 변경되었음");
+      });
+    */
+
+      // ** 우편번호, 데이터들
+      // -- big Data 데이터 수집 -> 저장(파일, DB) -> 분석 -> 통계 -> 시각화
+      // -- load("파일명", function () )
+      $("#news").load("news.txt", function (txt, status) {
+        // alert(status);  // success, fail
+        alert(txt); // -- 문자열이 들어옴. (파일의 내용)
+      });
+
+    });
+  </script>
+</body>
+</html>

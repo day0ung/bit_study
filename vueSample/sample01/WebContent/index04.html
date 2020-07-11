@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<p>{{ str }}</p>
+	<p v-html='str'></p>		<!-- html() -->
+	<p v-text='str'></p>		<!-- text() -->
+</div>
+
+<script type="text/javascript">
+	
+	new Vue({
+		el:"#app",
+		data:{
+			str: '문자를 <strong>굵게</strong> 또는 <em>기울고</em> 싶다'
+		}		
+	});
+
+
+</script>
+
+</body>
+</html>
+
+<!-- 
+v-text : 속성값의 내용을 그대로 텍스트로 출력을 한다.
+v-html : 속성값의 내용을 html 적용해서 출력을 한다.
+v-show : 예를들어 css의 display 속성을 보였다가 숨겼다가 하는 기능을 보여준다. 또한 더 예를 들면 jquery 의 show /hide 의 메소드처럼 파악하면 된다
+
+v-if, v-else, v-else-if    조건부 렌더링, 조건이 해당하는 Dom 요소만 렌더링을 한다.
+
+v-for : 리스트 렌더링, 인터블한 객체를 반복해서 렌더링할때 사용을 한다.
+v-on  : 이벤트 핸들링, click 과 같은 이벤트를 설정할때 사용한다 (약어로는 @ 사용이 가능하다 )
+v-bind : 데이터 바인딩, html 속성에 인스턴스 속성 및 메소드 사용이 가능하다. 
+v-model : 폼 입력 바인딩, 폼 태그의 입력값과 변수에 양방향 바인딩을 설정한다.
+v-pre : 내부 값에 템플릿 문법을 적용하지 않을때 사용한다 (디렉티브,컴포넌트 포함)
+v-clock : 인스턴스가 템플릿 문법을 적용할때 까지 DOM 속성에 남아있음 (로딩 구현시 사용된다 )
+v-once : 내부 템플릿 문법이 한번만 적용을 한다 (반응형을 해체 할 수 있다)
+
+ -->
+
+
+
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+	<ul id="app">
+		<li v-for="(no, i) in arr"> <!-- arr배열에 대해서 인덱스번호는 i, no ->번호 -->
+			<button @click='remove(i)'>X</button>{{no}}
+		</li>
+		
+		<li>
+			<button @click='append(1)'>+1 </button>
+			<button @click='append(5)'>+5 </button>
+			<button @click='append(10)'>+10 </button>
+		</li>
+	</ul>
+	
+	
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				cur: 0,
+				arr: [] //배열초기화
+			},
+			methods:{
+				append: function(x){
+					//let 은 노드 문법 빼도 돌아감
+					for(let i = 0; i < x; i ++){
+						this.arr.push(++this.cur); //arr가 여기서 list와 동일하다 javascript의 배열은 추가삭제가 자유롭다. 
+					} 
+				},
+				remove: function (index){
+					//splice일정요소를 제거할때 쓰는 함수
+					this.arr.splice(index, 1);
+				}
+			}
+			});
+	</script>
+	
+	<!-- 
+	배열이 갖고 있는 함수들
+		.push()
+		.pop()
+		.shift()
+		.unshift()
+		.splice()
+		.sort() 정렬
+		.reverse() 바꿔주는것
+	 -->
+</body>
+</html>

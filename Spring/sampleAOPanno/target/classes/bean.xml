@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+<!-- new - other -spring - bean configuration 에서 aop추가해 파일만들기 -->
+
+<!-- 
+	객체를 생성할때
+	xml: <bean>
+	jsp: <jsp:useBean
+	java: new Object 
+ -->
+ 
+ <!-- AOP Object를 생성 -->
+ <!-- logaop에서 준비작업을 마치고 온 후에 -->
+ <bean id="logApp" class="com.aop.LogAOP"/>
+ <!-- LogAop logApp = new LogAOP(); java에서와 같은의미 ,   변수설정은 properties로-->
+
+ <!-- AOP Annotation사용하는 방법 -->
+ <aop:aspectj-autoproxy/>
+ 
+ <!-- Cat Object  xml에서생성하기-->
+ <bean id="myCat" class="com.dto.Cat">
+ 	<property name="name" value="양희"/>
+ 	<property name="age" value="3"/>
+ 	<property name="color" value="회색"/>
+ </bean>
+</beans>

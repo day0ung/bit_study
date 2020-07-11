@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<a href="hello?age=24">hello Servlet</a>
+<!-- a는 100% get방식이다 -->
+
+<!-- Redirect 설정 -->
+<p>Redirect 설정</p>
+
+<form action="hello" method="post">
+<select name="url">
+	<option value="naver.com" selected="selected">Naver</option>
+	<option value="google.com" selected="selected">Google</option>
+	<option value="zum.com" selected="selected">Zum</option>
+	
+</select>
+
+<input type="submit" value="송신">
+
+</form>
+
+<form action="world" method="get">
+<select name="url">
+	<option value="naver.com" selected="selected">Naver</option>
+	<option value="google.com" selected="selected">Google</option>
+	<option value="zum.com" selected="selected">Zum</option>
+	
+</select>
+
+<input type="submit" value="송신">
+
+</form>
+
+</body>
+</html>

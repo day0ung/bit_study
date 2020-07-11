@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="books">
+</div>
+
+<script type="text/javascript">
+var xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(this.readyState == 4 && this.status ==200){
+		func(this);
+	}
+};
+
+xhttp.open("GET", "book.xml", true);
+xhttp.send();
+
+function func( xml ) {
+	var nodeArr;
+	var xmlDoc = xml.responseXML;
+	
+	//root tag 취득 <readingbook>
+	var rootTagName = xmlDoc.documentElement.nodeName;
+	alert(rootTagName);
+	
+	//root tag안의 node취득<node명을 취득 <book>
+	var nodeName;
+	nodeArr = xmlDoc.documentElement.childNodes;
+	alert(nodeArr);
+	
+	for (i = 0; i < nodeArr.length; i++) {
+		if(nodeArr[i].nodeType == 1){
+			nodeName = nodeArr[i].nodeName;
+			alert(nodeName);
+		}
+	}
+	
+	//table 준비
+	//내보내는 데이터 >> nodeArr부분에 다들어가 있음, 한번만얻어오면됨
+	var out = "<table border='1'>";
+	out += "<col width=100><col width=140><col width=100>"
+	out += "<tr>";
+	
+	//column명을 취득 <title><author>...
+	//column명칭 준비 col에대한 배열을 받아와야함
+	nodeArr = xmlDoc.getElementsByTagName( nodeName )[0];
+	
+	var child = nodeArr.firstChild; //자식태그
+	for (i = 0; i < nodeArr.childNodes.length; i++) {
+		if(child.nodeType == 1){
+			out += "<th>" + child.nodeName + "</th>";
+		}
+		child = child.nextSibling;
+	}
+	out += "</tr>";
+	
+	//data출력
+	//길이값나오게하기
+	var len = xmlDoc.getElementsByTagName( nodeName ).length;
+	alert(len); //4가 출력됨
+	
+	for (var i = 0; i < len; i++) {
+		out += "<tr>";
+				//tr 안에들어갈것들은 title, author
+		dataArr = xmlDoc.getElementsByTagName( nodeName )[i];
+		
+		child = dataArr.firstChild; //첫번째꺼 얻어옴 title author price 안의 데이터넣기
+		for ( j = 0; j < dataArr.childNodes.length; j++) {
+			if(child.nodeType == 1){
+				out += "<td>" +child.childNodes[0].nodeValue + "</td>";
+			}
+			child = child.nextSibling;
+		}
+		
+		
+		
+		out += "</tr>";
+		
+	}
+	
+	out += "</table>";
+	alert("end");
+	document.getElementById("books").innerHTML = out;
+}	
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/vue-router"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<style type="text/css">
+#app{
+	margin: auto;
+	margin-top: 60px;
+	width: 60%;
+	border: 3px solid #8ac007;
+	padding: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Login</h1>
+
+<div id="app">
+	
+	<table border="1">
+	<tr>
+		<td>아이디</td>
+		<td>
+			<input v-model="id" placeholder="아이디입력" size="20">
+		</td>
+	</tr>
+	<tr>
+		<td>패스워드</td>
+		<td>
+			<input v-model="pwd" placeholder="패스워드입력" size="20">
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<button @click="login">login</button>		
+			<button v-on:click="account">회원가입</button> <!-- $("#btn).on("click") -->
+		</td>
+	</tr>
+	</table>
+	
+</div>
+
+<script type="text/javascript">
+var v = new Vue({       // new 키워드 Vue 인스턴스 생성
+    el: '#app', 
+    data: {
+    	id: '',
+    	pwd: ''
+    },
+    methods:{ 
+    	login:function(){
+    		//빈칸 조사
+    		if(this.id == ""){
+    			alert("id를 입력해 주세요");
+    			return false;
+    		}
+    		if(this.pwd == ""){
+    			alert("비밀번호를 입력해 주세요");
+    			return false;
+    		}
+    		//보낼데이터
+    		var params = new URLSearchParams();
+    		params.append("id", v.id);
+    		params.append("pwd", v.pwd);
+    		//alert(this.id);
+    		axios.post('http://localhost:3000/login', params).then(
+    				res => {
+    			//alert('통신성공');
+    			//alert(JSON.stringify(res.data));
+    			
+    			if(res.data.id == undefined){
+    				alert("id나 password가 틀렸습니다.");
+    				return false;
+    			}
+    			//session사용시 -> vuex 사용, 혹은 html에서 사용 ->sessionStorage(objec저장)/ localstorage(string저장) -> cookie(String만 됨)
+    			
+    			//세션에 저장						//json으로 넘어옴 세션에 저장할때는 
+    			sessionStorage.setItem("login", JSON.stringify(res.data)); //String
+    			
+    			var loginData = sessionStorage.getItem("login"); //세션가져오기
+  
+    			var login = JSON.parse(loginData); //JSON
+    			alert(login);
+    			location.href= "bbslist.html";
+    		})
+    	},
+    	account:function(event){
+    		//alert("account");
+    		location.href = "account.html"; /* 이렇게사용안하고 cli방식은 router사용, 우리는 지금 cld방식사용 */
+    	}
+    }
+})
+</script>
+
+
+</body>
+</html>
+
+

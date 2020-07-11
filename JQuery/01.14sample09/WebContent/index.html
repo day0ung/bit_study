@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<h3>Detail View</h3>
+<textarea rows="2" cols="20">기본글...</textarea>
+
+<br><br>
+
+<button type="button" id="answer">답글입력</button>
+
+<br>
+
+<div id="anserForm">
+</div>
+
+<script type="text/javascript">
+$(function(){
+  $('#answer').click(function(){
+    var txtF = "<br>답글 : <input type='text' id='answerText'>";
+    $("#anserForm").append(txtF);
+
+    var btn = "<br><br><button type='button' id='answerBtn'>답글작성 완료</button>";
+    $("#anserForm").append(btn);
+  });
+
+  /*
+  이 코드는 동작 하지 않는다.
+  $('#answerBtn').click(function(){
+    alert("answerBtn click");
+  });
+  */
+
+  // refresh 후 작동
+  $(document).on('click', '#answerBtn', function(){
+    //alert("answerBtn click");
+    alert($('#answerText').val());
+  });
+
+
+
+});
+</script>
+
+</body>
+</html>

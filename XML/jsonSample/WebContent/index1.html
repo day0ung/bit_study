@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  	//json파일만들기 new-file - jsondata.json -->
+<p id="demo"></p>
+
+<script type="text/javascript">
+var xmlhttp = new XMLHttpRequest(); //json은 xml소속이다, parsing도 xml과 똑같이쓰임
+
+xmlhttp.onreadystatechange = function () {
+	if(xmlhttp.readyState == 4 && xmlhttp.status ==200){
+		jsonFunc( xmlhttp.responseText );
+	}
+}
+//jsondata를 parsing하기 위한 준비
+xmlhttp.open("GET","jsondata.json",true);
+xmlhttp.send();
+
+//if문안에서 호출하는 함수  //resp response의 약자
+function jsonFunc( resp ) {
+	//parsing한 데이터를 배열로 받음
+	//json데이터가 넘어오면 2차원배열로 넘어옴
+	var arr = JSON.parse( resp ); //문자열로 넘어온 데이터를 json으로 만들어준다.
+	var txt = "";
+	alert(arr.length);
+	
+	//key:value를 취득 2차원배열로 받음
+	/* 	
+ 	for (i = 0; i < arr.length; i++) {
+		for ( key in arr[i] ) { //name,age,address.. 가 넘어옴
+			txt += key + ":" + arr[i][key];
+		}
+		txt +="<br>";
+	} 
+	*/
+	
+	//key:value취득 다른방법, key값을 먼저 얻고 key값을 통해서 value접근
+	for (i = 0; i < arr.length; i++) {
+		txt += arr[i].name + " " +
+			   arr[i].age + " " +
+			   arr[i].address + " " +
+			   arr[i].phone + "<br>";
+	}
+	document.getElementById("demo").innerHTML = txt;
+	
+}
+</script>
+</body>
+</html>

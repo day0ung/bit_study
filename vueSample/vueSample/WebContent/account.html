@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script src="https://unpkg.com/vue-router"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+<style type="text/css">
+#app{
+	margin: auto;
+	margin-top: 60px;
+	width: 60%;
+	border: 3px solid #8ac007;
+	padding: 10px;
+}
+p{
+	font-size: 8px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Account</h1>
+
+<div id="app">
+	
+	<table border="1">
+	<tr>
+		<td>아이디</td>
+		<td>
+			<input v-model="id" placeholder="아이디입력" size="20">
+			<p>{{ idmsg }}</p>
+			<button v-on:click="idcheck">중복확인</button>
+		</td>
+	</tr>
+	<tr>
+		<td>패스워드</td>
+		<td>
+			<input v-model="pwd" placeholder="패스워드입력" size="20">
+		</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td>
+			<input v-model="name" placeholder="이름입력" size="20">
+		</td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td>
+			<input v-model="email" placeholder="이메일입력" size="20">
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">				
+			<button v-on:click="account">회원가입</button>
+		</td>
+	</tr>
+	</table>	
+</div>
+
+<script type="text/javascript">
+
+/*
+	https://www.tutorialsplane.com/ 굿사이트 
+	https://codepen.io/topic/vue/templates
+ */
+
+
+var v = new Vue({       // new 키워드 Vue 인스턴스 생성
+    el: '#app', 
+    data: {				// ReferenceError: 모두 있어야 한다 
+    	id: '',
+    	pwd: '',
+    	name: '',
+    	email: '',
+    	idmsg: ''
+    },
+    methods:{
+    	idcheck:function(event){
+    	//	alert("id:" + this.id);
+    		axios.get('http://localhost:3000/getid', { 
+		    	params:{ 
+		      		id: this.id 
+		    	} 
+		  	}).then(res => {    	        
+			   	alert("통신성공");	   
+			// 	alert(res.data);
+			   	if(res.data == "NO"){
+			   		this.idmsg = "사용할 수 없는 id입니다";
+			   		this.id = "";
+			   	}else{
+			   		this.idmsg = "사용할 수 있습니다";
+			   	}
+		  	})
+    	},
+    	account:function(event){  
+    		
+    		var params = new URLSearchParams();	// 보낼데이터
+    		params.append('id', this.id);
+    		params.append('pwd', this.pwd);
+    		params.append('name', this.name);
+    		params.append('email', this.email);
+    		
+    		axios.post('http://localhost:3000/account', params)
+    		.then(res => {    	        
+			   	alert("통신성공");			
+			   	if(res.data == "YES"){
+			   		alert("성공적으로 가입되었습니다");
+			   		location.href = "login.html";
+			   	}else{
+			   		alert("가입되지 않았습니다");
+			   		location.href = "login.html";
+			   	}
+		  	})
+    	}    	
+    }
+}) 
+</script>
+
+</body>
+</html>

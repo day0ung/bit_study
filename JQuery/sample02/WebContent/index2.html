@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<p>p tag</p>
+
+<p id="pid">p tag id pid</p>
+
+<p class="cls">p tag class cls</p>
+
+<p name="_name">p tag name _name</p>
+
+<button type="button">click</button>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+	//p tag의 문자열 갖고오기
+	$("p").click(function () {
+		console.log( $(this).text() );
+	});
+	//콘솔창에 click한 문자열을 뿌려줌
+	
+	$("button").click(function () {
+		//$('p').hide(); //일반 tag접근
+		//$("*").hide(); //*모든 tag들사라짐 버튼까지
+		//$('p#pid').hide(); //id 접근: p tag안의 pid만 사라짐
+		//$('p.cls').hide(); //class 접근: p tag의 cls가 사라짐
+		//$('p[name=_name]').hide(); //name접근: []사용해야함
+	});
+});
+
+</script>
+</body>
+</html>

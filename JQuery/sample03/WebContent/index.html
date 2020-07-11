@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>수영시합</h1>
+<button type="button" id="woman">여성부</button>
+<button type="button" id="man">남성부</button>
+<br><br>
+
+<table border="1" id="result">
+	<tr> <!-- 0 -->
+		<th>title</th>
+		<th>name</th>
+		<th>time</th>
+	</tr>
+	<tr> <!-- 1 -->
+		<th>우승</th>
+		<td></td> <!-- 0 -->
+		<td></td>
+	</tr>
+	<tr>
+		<th>2위</th>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th>3위</th>
+		<td></td>
+		<td></td>
+	</tr>
+	
+</table>
+
+<script type="text/javascript">
+// file read
+var woman = [
+	["", ""],
+	["김영희", "01:06:11"],
+	["이수빈", "01:16:12"],
+	["박진희", "01:26:13"]
+	
+];
+
+var man = [
+	["", ""],
+	["홍길도", "01:08:11"],
+	["일지매", "01:09:12"],
+	["정수도", "01:10:13"]
+	
+];
+
+$(function () {
+	//테이블에 단계별로 색들어가게 하는 것
+	//$("tr:even").css("background-color", "#00ff00");
+	
+	//테이블에 데이터 넣을때 
+ 	//$("tr:eq(1) td:eq(0)").html("데이터");
+ 	//$("tr:eq(1) td:eq(1)").html("데이터");
+	
+ 	//file read>>만들어놓은 데이터 버튼을눌렀을때넣기
+ 	$("#woman").click(function () {
+		for(i = 0; i<4; i++){
+			for(j=0;j<2;j++){
+				$("tr:eq(" +i +") td:eq(" +j+")").html(woman[i][j]);
+			}
+		}
+	});
+ 	$("#man").click(function () {
+ 		for(i = 0; i<4; i++){
+			for(j=0;j<2;j++){
+				$("tr:eq(" +i +") td:eq(" +j+")").html(man[i][j]);
+			}
+		}
+		
+	});
+ 	
+ 	//테이블위 td값의 색 마우스올ㄹ려놓으면 색변경하기
+ 	$("td").mouseover(function () {
+		//$(this).css("background-color", "#ccc");
+		//$(this).css("color", "#000000");
+		//여러개의데이터가 있을때 사용 위의 코드와 같이 실행됨(Json) 앞은 key: 뒤는 value
+		$(this).css({"background-color": "#ccc", "color":"#000000" });
+	});
+	$("td").mouseout(function () {
+		$(this).css("background-color", "#666666");
+		$(this).css("background-color", "#ffffff");
+	});
+});
+</script>
+</body>
+</html>

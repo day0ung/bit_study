@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+	<h3>오늘은
+		<span v-if='dayOfWeek==1'>월요일</span>
+		<span v-else-if='dayOfWeek==2'>화요일</span>
+		<span v-else-if='dayOfWeek==3'>수요일</span>
+		<span v-else-if='dayOfWeek==4'>목요일</span>
+		<span v-else-if='dayOfWeek==5'>금요일</span>
+		<span v-else-if='dayOfWeek==6'>토요일</span>
+		<span v-else>일요일</span>
+	</h3>
+	<button onclick="rand()">다른날은?</button>
+</div>
+
+<script type="text/javascript">
+	var app = new Vue({
+			el:	"#app",
+			data: {
+				dayOfWeek: (new Date()).getDay()	// 요일
+			}
+	});
+	function rand(){
+		app.dayOfWeek = Math.floor(Math.random() * 7);
+	}
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

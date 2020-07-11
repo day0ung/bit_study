@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"> -->
+<!--<script src="./js/jquery.min.js"></script> 위와 같은 코드 -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</script>
+</head>
+<body>
+<!--
+	Java Script: client(front).web server 와 관련은 없음
+				  화면의 resource와 값을 설정, 취득하는 부분을 처리.
+				 DOM(getElementById, nodelist)
+	CSS(Cascading Style Sheet): 디자인. front
+
+	JQuery : Java Script를 경량화. JavaScript를 통해서 제작해놓은것
+			JQuery에 소속되있는 것 == Ajax(비동기 통신)
+			Vue,reAct : Vue코드안에서  JQuery혼용 사용가능
+
+	JQuery-UI : button,textField,slide... 갖고있음 제일이쁘다
+	
+	※JQuery는 반드시 링크를 걸어줘야함
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+ -->
+<p>여기가 ptag 입니다</p>
+
+<p id="demo"> p tag id demo</p>
+
+<p class="cls">p tag class cls</p>
+
+<h3 class="cls">h3 tag class cls</h3>
+
+<script type="text/javascript">
+//java script로 접근할때 p tag들만 갖고오기
+/*
+var arrPtag = document.getElementsByTagName("p");
+for(i =0; i < arrPtag.length; i++){
+//	console.log(arrPtag[i].innerHTML);
+	//ptag들에 hello ptag로 넣기
+	arrPtag[i].innerHTML = "Hello P Tag"
+} 
+*/
+
+//Jquery로 접근 p tag들만 갖고오기
+
+$(document).ready(function(){
+     //alert("JQuery 실행");
+     /*
+     	var v = $(태그명 또는 id 또는 class).핸들러 함수() --> getter
+     	
+     	$(태그명 또는 id 또는 class).핸들러 함수(매개변수) -->setter
+     	
+     	html() -> 문자열안의 tag를 인식
+     	text() -> 모든 문자열로 취급하여 인식
+     */
+     
+     //html로 인식== tag를 인식한다
+     //$("p").html("Hello P tag"); //setter == javaScript의 innerHTML과 같음
+     //$("p").html("<b>Hello P tag</b>"); 
+     
+     //text는 문자열만 인식 ==tag를 인식하지 못함
+     //$('p').text("Hello P tag");
+     //$('p').text("<b>Hello P tag</b>"); //tag명 <b>까지 나타남
+     
+     //위의 것 javascript로 표현하기(JS)
+     //document.getElementById("demo").innerHTML = "Hello P tag";
+   	 
+     //Jquery
+     //$("#demo").html("Hello P tag");
+     //$("#demo").text("Hello P tag"); //위의것과 동일한 처리
+   
+     
+     //값을 가져올때
+     //var str = $("demo").html(); -->JQuery(getter)
+     
+     //var str = document.getElementById("demo").innerHTML; --> JavaScript(getter)
+     //alert(str);
+     
+     $(".cls").text("class cls인 태그입니다");
+     
+     var cls = $(".cls").text();
+     alert(cls);
+   });
+   
+ </script>
+</body>
+</html>

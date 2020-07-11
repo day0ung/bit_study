@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <!-- DB에서 불러오기 위함 dao에서 mapper부터 필요로함 --> 
+<mapper namespace="Member"> <!-- namespace 지정자..?  -->
+
+<select id="allMember" resultType="bit.com.a.model.MemberDto">
+	SELECT * FROM MEMBER
+</select>
+
+<select resultType="java.lang.Integer" id="getId" parameterType="java.lang.String">
+	SELECT NVL(COUNT(*), 0)
+	FROM MEMBER 
+	WHERE ID=#{id}
+</select>
+
+
+
+<!-- bbs -->
+<select id="login" parameterType="bit.com.a.model.MemberDto" 
+		resultType="bit.com.a.model.MemberDto"> <!-- 로그인한정보를 세션에담아야하기 때문에 리턴값 -->
+	SELECT ID, NAME, EMAIL, AUTH
+	FROM MEMBER
+	WHERE ID=#{id} AND PWD=#{pwd}
+
+</select>
+</mapper>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!--  
+	Java Script(Client) != Java(Server)
+	목적: Front end 제어하기 위한 스크립트(logic)
+		보조 프로그래밍적인 요소이다.
+		화면 제어하기 위한 요소  -> JQeury(version) -> Vue,reAct
+		컴파일을 하지 않는다. 가볍다 ->속도가 빠르다
+	
+	예) 회원가입 -> 빈칸을 조사. ID글자수를 조사, pw에 숫자포함, 체크해주는것 >> JavaScript
+	
+	CSS에 대해서 구현.
+	Timer를 설정해서 특수효과 같은 처리를 할 수 있다.
+	차트, 그래프로 표현이 가능하다.
+	
+	중요한것
+	id(페이지내에서 1개만가능),
+	class(다수, css) ex)페이지내에서 글씨 검색할때 ,
+	name(link를사용해서 값을넘겨줄때 사용) ->접근하기 위한 속성(attribute)
+-->
+
+<p id="demo"> p tag id demo</p>
+
+<script type="text/javascript">
+//한줄 주석문
+ /*
+  범위 주석문
+ */
+ 
+// (window.) window 안적어도됨 alert("확인용- JavaScript 실행");
+
+console.log("Java Script 실행"); //console창에 띄어주는것이아님, front에 잇음
+
+
+//getter document --html에 있는 문서
+var v = document.getElementById("demo"); //innerHTMl == p tag안에 있는 문자열가져옴
+alert(v.innerHTML);
+
+//setter
+//document.getElementById("demo").innerHTML = " p 태그 demo아이디"
+
+v.innerHTML ="p 태그 demo아이디 입니다";
+
+
+
+alert(v);
+
+
+</script>
+
+</body>
+</html>

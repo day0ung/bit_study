@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+<!-- 
+JQuery -> Ajax(Json) ->Server(Java) (list, hashmap) 
+핵심 통신, java에서 hashmap으로 받아서 다시 Json으로 넘겨줌
+-->
+
+<!-- list에 접근하는 방법(버튼으로) -->
+<ul id="list">
+	<li>Coffee
+		<ol type="1">
+			<li>black</li>
+			<li>milk</li>
+		</ol>
+	</li>
+	<li>Tea</li>
+	<li>Milk</li>
+</ul>
+
+<button type="button" id="btn">선택 및 감추기</button>
+<button type="button" id="btn1">보이기</button>
+
+<script type="text/javascript">
+$(function () {
+	$("#btn").click(function () {
+		//$("#list").hide();
+		
+		//list첫번째 사라지게 하기
+		//$("ul li:first").hide();
+		//$("#list li:first").hide();
+		
+		//$("ul ol li:first").hide();
+		//$("ul ol li:first-child").hide();
+		
+		//두번째(milk)사라지게 하기
+		$("ul ol li:nth-child(1)").hide();		
+	});
+	#('#btn1').click(function () {
+		$("ul ol li:nth-child(2)").show();
+	});
+});
+</script>
+</body>
+</html>

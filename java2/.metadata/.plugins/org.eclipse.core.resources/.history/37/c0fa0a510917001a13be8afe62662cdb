@@ -1,7 +1,0 @@
-package awtSample04;
-
-import java.awt.Panel;
-
-public class myPanel extends Panel {
-
-}

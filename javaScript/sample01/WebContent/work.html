@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div style="border: 1px solid #ffc200">
+<h3>JavaScript 01</h3> 
+그림을 클릭하면 alert이 실행됨.<br>
+<!--  <img alt="" src="" onclick="alert('타히티 사진입니다.')"> alert을 바로 써도됨-->
+
+	<img id="grim" onclick="grimClick()" alt="" src="./images/tahiti01.jpg">
+	<br>
+	<input type="text" id = "tid" value="">	
+	
+	<script type="text/javascript">
+	function grimClick() {
+		//alert("타히티의 사진입니다.");
+		var v = document.getElementById("tid");
+		id.value = '타히티 사진입니다';
+	}
+	</script>
+
+</div>
+
+<div style="border: 1px solid #ffc200">
+<h3>JavaScript 02</h3>
+<p> <b>문제</b></p>
+<p> 한국에서 제일 높은 산은?</p>
+댭: <input type="text" id = "solution">
+<input type="button" onclick="func()" value ="클릭">
+
+<!-- <button type="button" onclick="btnClick()"> 정답보기</button> -->
+
+<script type="text/javascript">
+function func() {
+	var solution = document.getElementById("solution").value;
+	if(solution == '한라산'){
+		alert('정답입니다');
+	}else{
+		alert('틀렸습니다');
+	}
+}
+</script>
+
+</div>
+
+<div style="border: 1px solid #ffc200">
+<h3>JavaScript 03</h3>
+<p> <b>변수의 연산</b></p>
+<p> 변수 [a]와 [b]의 계산 결과를 표시합니다.</p>
+A:<input type="text" value="" size="10" id ="a">
+B:<input type="text" value="" size="10" id = "b">
+<br>
+<button type ="button" onclick ="btnPlus()">더하기</button>
+<button type ="button" onclick ="btnMinus()">빼기</button>
+<button type ="button" onclick ="btnMulti()">곱하기</button>
+<button type ="button" onclick ="btnDivis()">나누기</button>
+<button type ="button" onclick ="btnRemain()">나머지</button>
+<br>
+<p>계산결과:</p><p id="result">----</p>
+<script type="text/javascript">
+function btnPlus() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+
+	document.getElementById("result").innerHTML = parseInt(a)+parseInt(b);
+}
+
+function btnMinus() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+
+	document.getElementById("result").innerHTML = parseInt(a)-parseInt(b);
+}
+
+function btnMulti() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+
+	document.getElementById("result").innerHTML = parseInt(a)*parseInt(b);
+}
+
+function btnDivis() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+
+	document.getElementById("result").innerHTML = parseInt(a)/parseInt(b);
+}
+
+function btnRemain() {
+	var a = document.getElementById("a").value;
+	var b = document.getElementById("b").value;
+
+	document.getElementById("result").innerHTML = parseInt(a)%parseInt(b);
+}
+
+</script>
+
+</div>
+
+<div style="border: 1px solid #ffc200">
+<h3>JavaScript 04</h3>
+ <h3>체육관 이용 요금</h3>
+      <p>기본 사용료(2면, 4시간) 40,800원</p>
+      <form name="frm">
+         <input name="option" type="checkbox" value="20000" onClick="opPrice(this.form);">야간 조명(20,000원)<br>
+         <input name="option" type="checkbox" value="4000" onClick="opPrice(this.form);">배구 네트x2면(4,000원)<br>
+         <input name="option" type="checkbox" value="5000" onClick="opPrice(this.form);">배구x10개(5,000원)<br>
+         <p>합계 금액 <input name="total_sum" type="text" readonly value="40800">원형</p>
+      </form>
+      
+      <script type="text/javascript">
+      function opPrice()
+      {
+         var sum = 0;
+         var count = frm.option.length;
+         for(var i=0; i < count; i++ ){
+             if( frm.option[i].checked == true ){
+             sum += parseInt(frm.option[i].value);
+             }
+         }
+         frm.total_sum.value = sum + 40800;
+      }
+      </script>
+
+
+</div>
+
+
+
+</body>
+</html>

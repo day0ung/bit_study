@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+
+</head>
+<body>
+<!-- 
+index 01에서 넘겨준 데이터 받는 html
+mounted는 기본적으로 함수가 호출됨 
+route를 통하여 파라미터를 받을 수 있음
+$route.query : 쿼리문이 다 넘어오게됨
+-->
+
+<h3>index02.html</h3>
+<div id="app2">
+	<h1>num: {{ num }}</h1>
+	<h1>writer: {{ writer }}</h1>
+</div>
+
+<script type="text/javascript">
+
+var router = new VueRouter({
+	mode: 'history',
+	routes: []
+});
+
+	new Vue({
+		router,
+		el: '#app2',
+		data: {
+			num: 0,
+			writer: ''
+		},
+		mounted: function(){
+		//	alert('mounted');
+			parameters = this.$route.query
+		//	alert( parameters );
+			this.num = parameters.num;
+			this.writer = this.$route.query.writer;
+		}
+	})
+
+
+
+</script>
+</body>
+</html>
